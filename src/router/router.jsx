@@ -6,6 +6,7 @@ import Register from "../pages/Authentication/Register/Register";
 import Apartment from "../pages/Apartment/Apartment/Apartment";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MyProfile from "../pages/Dashboard/MyProfile/MyProfile/MyProfile";
+import Announcements from "../pages/Dashboard/Announcements/Announcements";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 index:true,
                 Component:MyProfile
+            },
+            {
+                path:'announcements',
+                Component: Announcements
             }
         ]
     }
