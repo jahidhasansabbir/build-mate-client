@@ -1,0 +1,43 @@
+import React from 'react';
+import GoogleLogin from '../../shared/GoogleLogin/GoogleLogin';
+import { NavLink } from 'react-router';
+
+const Login = () => {
+    return (
+        <div className="card bg-base-100 w-11/12 border my-10 border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
+      <div className="card-body">
+        <h1 className="text-2xl font-bold md:text-4xl">Log in now!</h1>
+        <form className="fieldset">
+          <label className="label">Email</label>
+          <input
+            type="email"
+            name="email"
+            className="input border-1"
+            placeholder="Email"
+          />
+          <label className="label">Password</label>
+          <input
+            type="password"
+            name="password"
+            className="input border-1"
+            placeholder="Password"
+          />
+          <div>
+            <a className="link link-hover">Forgot password?</a>
+          </div>
+          <button className="btn btn-neutral mt-4">Login</button>
+        </form>
+        <p className="text-center text-gray-400">or,</p>
+        <GoogleLogin></GoogleLogin>
+      </div>
+      <p className="text-center pb-4">
+        Haven't an account?{" "}
+        <NavLink to="/register">
+          <span className="text-blue-700 hover:underline">Register</span>
+        </NavLink>
+      </p>
+    </div>
+    );
+};
+
+export default Login;
