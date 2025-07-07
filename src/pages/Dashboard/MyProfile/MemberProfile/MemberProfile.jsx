@@ -8,7 +8,8 @@ import {
   FiLayers,
 } from "react-icons/fi";
 
-const UserProfile = ({ user}) => {
+const UserProfile = ({ user, agreement}) => {
+    console.log(agreement);
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10">
       <div className="bg-[#161B22]/60 border border-[#30363D] rounded-2xl shadow-xl p-6 sm:p-8 backdrop-blur-lg space-y-6">
@@ -37,25 +38,25 @@ const UserProfile = ({ user}) => {
             <p className="text-sm text-[#9CA3AF] mb-1 flex items-center gap-2">
               <FiCalendar /> Agreement Accepted On
             </p>
-            <p className="font-medium text-lg">None</p>
+            <p className="font-medium text-lg">{agreement?.acceptedDate}</p>
           </div>
           <div>
             <p className="text-sm text-[#9CA3AF] mb-1 flex items-center gap-2">
               <FiGrid /> Floor No
             </p>
-            <p className="font-medium text-lg">None</p>
+            <p className="font-medium text-lg">{agreement?.floorNo}</p>
           </div>
           <div>
             <p className="text-sm text-[#9CA3AF] mb-1 flex items-center gap-2">
               <FiLayers /> Block Name
             </p>
-            <p className="font-medium text-lg">None</p>
+            <p className="font-medium text-lg">{agreement?.blockName}</p>
           </div>
           <div>
             <p className="text-sm text-[#9CA3AF] mb-1 flex items-center gap-2">
               <FiHash /> Apartment No
             </p>
-            <p className="font-medium text-lg">None</p>
+            <p className="font-medium text-lg">{agreement.apartmentNo}</p>
           </div>
         </div>
       </div>

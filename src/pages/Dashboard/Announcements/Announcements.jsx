@@ -6,12 +6,11 @@ import { useQuery } from "@tanstack/react-query";
 const Announcements = () => {
     const axiosFetch = useAxios();
     const { data: announcements = [], isLoading } = useQuery({
-    queryKey: ["apartments"],
+    queryKey: ["announcements"],
     queryFn: async () => {
       const res = await axiosFetch.get("/announcements");
       return res.data;
     },
-    
   });
   if(isLoading) return "loading..."
   return (
