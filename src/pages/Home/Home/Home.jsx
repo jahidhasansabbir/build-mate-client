@@ -3,6 +3,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import Slider from "../Slider/Slider";
 import AboutTheBuilding from "../AboutTheBuilding/AboutTheBuilding";
 import Coupons from "../Coupons/Coupons";
+import Location from "../Location/Location";
 
 const Home = () => {
   return (
@@ -15,6 +16,9 @@ const Home = () => {
       </div>
       <div className="w-11/12 mx-auto">
         <Coupons></Coupons>
+      </div>
+      <div className="w-11/12 mx-auto">
+        <Location></Location>
       </div>
     </div>
   );
