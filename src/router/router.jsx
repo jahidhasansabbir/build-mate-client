@@ -5,7 +5,7 @@ import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
 import Apartment from "../pages/Apartment/Apartment/Apartment";
 import DashboardLayout from "../layouts/DashboardLayout";
-import Dashboard from "../pages/Dashboard/Dashboard/Dashboard";
+import MyProfile from "../pages/Dashboard/MyProfile/MyProfile/MyProfile";
 
 export const router = createBrowserRouter([
     {
@@ -36,7 +36,7 @@ export const router = createBrowserRouter([
         children:[
             {
                 index:true,
-                Component:Dashboard
+                Component:MyProfile
             }
         ]
     }
