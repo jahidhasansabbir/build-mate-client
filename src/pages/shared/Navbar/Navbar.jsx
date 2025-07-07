@@ -43,7 +43,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Build<span className="-ml-1.5 text-blue-600">Mate</span></a>
+        <NavLink to="/" className="btn btn-ghost text-xl">Build<span className="-ml-1.5 text-blue-600">Mate</span></NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -52,7 +52,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {
-            user? <Avatar user={user} logOut={logOut}></Avatar>:<NavLink to='/login' className="btn">Log in</NavLink>
+            user? <Avatar user={user} logOut={logOut}></Avatar>:<NavLink to='/login' className="btn font-bold bg-blue-600">Log in</NavLink>
         }
       </div>
     </div>

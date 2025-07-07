@@ -17,9 +17,9 @@ const Avatar = ({user, logOut}) => {
         
         <li className="text-center py-2 text-base">{user.displayName}</li>
         <li>
-            <NavLink className="btn text-base border-none shadow-none bg-transparent hover:text-blue-600">Dashboard</NavLink>
+            <NavLink to='/dashboard' className="btn text-base border-none shadow-none bg-transparent hover:text-blue-600">Dashboard</NavLink>
         </li>
-        <button className="btn text-base hover:text-blue-600" onClick={()=>{
+        <button className="btn text-base bg-blue-600 text-white hover:text-blue-600 hover:bg-white " onClick={()=>{
             logOut()
             .then(()=>{console.log("logout successfull");})
             .catch((err)=>{
