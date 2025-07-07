@@ -1,13 +1,45 @@
-import React from 'react';
-import GoogleLogin from '../../shared/GoogleLogin/GoogleLogin';
-import { NavLink } from 'react-router';
+import React from "react";
+import { NavLink, useNavigate } from "react-router";
+import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
+import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
-    return (
-        <div className="card bg-base-100 w-11/12 border my-10 border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
+const {logInWithEmail}=useAuth();
+  const navigate = useNavigate();
+
+  const sweetAlert = () => {
+    Swal.fire({
+          icon: "success",
+          title: "Login Successful!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+    navigate('/')
+  };
+   const errorAlert=(msg)=>{
+      Swal.fire({
+        title: "Error!",
+        text: `${msg}`,
+        icon: "error",
+        showConfirmButton: true,
+      });
+    }
+  const handleLoginWithEmail = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    logInWithEmail(email, password)
+      .then(() => {
+        sweetAlert();
+      })
+      .catch((err) => errorAlert(err.message));
+  };
+  return (
+    <div className="card bg-base-100 w-11/12 border my-10 border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
       <div className="card-body">
         <h1 className="text-2xl font-bold md:text-4xl">Log in now!</h1>
-        <form className="fieldset">
+        <form className="fieldset" onSubmit={handleLoginWithEmail}>
           <label className="label">Email</label>
           <input
             type="email"
@@ -37,7 +69,7 @@ const Login = () => {
         </NavLink>
       </p>
     </div>
-    );
+  );
 };
 
 export default Login;

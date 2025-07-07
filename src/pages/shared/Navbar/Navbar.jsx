@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router";
+import useAuth from "../../../hooks/useAuth";
+import Avatar from "./Avatar/Avatar";
 
 const Navbar = () => {
+    const {user,logOut} = useAuth()
   const links = (
     <>
       <li>
@@ -40,7 +43,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Build<span className="-ml-1.5 text-blue-600">Mate</span></a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -48,7 +51,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink to='/login' className="btn">Log in</NavLink>
+        {
+            user? <Avatar user={user} logOut={logOut}></Avatar>:<NavLink to='/login' className="btn">Log in</NavLink>
+        }
       </div>
     </div>
   );
