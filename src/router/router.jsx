@@ -7,6 +7,7 @@ import Apartment from "../pages/Apartment/Apartment/Apartment";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MyProfile from "../pages/Dashboard/MyProfile/MyProfile/MyProfile";
 import Announcements from "../pages/Dashboard/Announcements/Announcements";
+import MakePayment from "../pages/Dashboard/MakePayment/MakePayment";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
             {
                 path:'announcements',
                 Component: Announcements
+            },
+            {
+                path: 'make-payment',
+                Component: MakePayment
             }
         ]
     }

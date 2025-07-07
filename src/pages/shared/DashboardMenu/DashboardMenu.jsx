@@ -37,7 +37,7 @@ const DashboardMenu = () => {
 
       <li>
         <NavLink
-          to="/dashboard/ddd"
+          to="/dashboard/make-payment"
           end
           className={({ isActive }) =>
             `flex items-center gap-3 rounded-lg px-3 py-2 ${
