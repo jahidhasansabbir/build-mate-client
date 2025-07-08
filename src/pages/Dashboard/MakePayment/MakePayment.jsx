@@ -2,10 +2,12 @@ import React from "react";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useNavigate } from "react-router";
 
 const MakePayment = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate()
   const { data: agreement = [], isLoading } = useQuery({
     queryKey: ["agreement", user?.email],
     queryFn: async () => {
@@ -16,6 +18,12 @@ const MakePayment = () => {
   if (isLoading) return "Loading...";
   const { blockName, apartmentNo, floorNo, rent } = agreement;
 
+  const handlePayment = e=>{
+    e.preventDefault()
+    navigate(`/dashboard/payment/${agreement?._id}`)
+
+  }
+
   return (
     <section className="max-w-3xl mx-auto px-4 sm:px-6 md:px-10 py-10">
       <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-lg p-6 sm:p-10 text-black">
@@ -23,7 +31,7 @@ const MakePayment = () => {
           Make Payment
         </h2>
 
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={handlePayment}>
           {/* Member Email */}
           <div>
             <label className="block text-gray-500 mb-1">Member Email</label>
@@ -81,6 +89,7 @@ const MakePayment = () => {
             <select
               className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
               defaultValue=""
+              required
             >
               <option disabled value="">
                 -- Choose Month --

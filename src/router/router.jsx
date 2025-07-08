@@ -16,6 +16,7 @@ import PrivateRoute from "../Provider/PrivateRoute";
 import Forbidden from "../pages/shared/Forbidden/Forbidden";
 import MemberRoute from "../Provider/MemberRoute";
 import AdminRoute from "../Provider/AdminRoute";
+import Payment from "../pages/Dashboard/Payment/Payment/Payment";
 
 
 export const router = createBrowserRouter([
@@ -72,6 +73,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-coupons',
                 element: <AdminRoute><ManageCoupons></ManageCoupons></AdminRoute>
+            },
+            {
+                path: 'payment/:id',
+                element:<MemberRoute><Payment></Payment></MemberRoute>
             }
         ]
     },
