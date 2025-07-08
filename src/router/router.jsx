@@ -9,6 +9,7 @@ import MyProfile from "../pages/Dashboard/MyProfile/MyProfile/MyProfile";
 import Announcements from "../pages/Dashboard/Announcements/Announcements";
 import MakePayment from "../pages/Dashboard/MakePayment/MakePayment";
 import ManageMembers from "../pages/Dashboard/ManageMembers/ManageMembers";
+import MakeAnnouncement from "../pages/Dashboard/MakeAnnouncement/MakeAnnouncement";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-members',
                 Component: ManageMembers
+            },
+            {
+                path: 'make-announcement',
+                Component: MakeAnnouncement
             }
         ]
     }
