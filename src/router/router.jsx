@@ -12,6 +12,11 @@ import ManageMembers from "../pages/Dashboard/ManageMembers/ManageMembers";
 import MakeAnnouncement from "../pages/Dashboard/MakeAnnouncement/MakeAnnouncement";
 import AgreementRequests from "../pages/Dashboard/AgreementRequests/AgreementRequests";
 import ManageCoupons from "../pages/Dashboard/ManageCoupons/ManageCoupons";
+import PrivateRoute from "../Provider/PrivateRoute";
+import Forbidden from "../pages/shared/Forbidden/Forbidden";
+import MemberRoute from "../Provider/MemberRoute";
+import AdminRoute from "../Provider/AdminRoute";
+
 
 export const router = createBrowserRouter([
     {
@@ -38,36 +43,40 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        Component: DashboardLayout,
+        element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children:[
             {
                 index:true,
-                Component:MyProfile
+                element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
             },
             {
                 path:'announcements',
-                Component: Announcements
+                element: <PrivateRoute><Announcements></Announcements></PrivateRoute>
             },
             {
                 path: 'make-payment',
-                Component: MakePayment
+                element:<MemberRoute><MakePayment></MakePayment></MemberRoute>
             },
             {
                 path: 'manage-members',
-                Component: ManageMembers
+                element: <AdminRoute><ManageMembers></ManageMembers></AdminRoute>
             },
             {
                 path: 'make-announcement',
-                Component: MakeAnnouncement
+                element:<AdminRoute><MakeAnnouncement></MakeAnnouncement></AdminRoute>
             },
             {
                 path: 'agreement-requests',
-                Component: AgreementRequests
+                element:<AdminRoute><AgreementRequests></AgreementRequests></AdminRoute>
             },
             {
                 path: 'manage-coupons',
-                Component: ManageCoupons
+                element: <AdminRoute><ManageCoupons></ManageCoupons></AdminRoute>
             }
         ]
+    },
+    {
+        path:'forbidden',
+        Component: Forbidden
     }
 ])
