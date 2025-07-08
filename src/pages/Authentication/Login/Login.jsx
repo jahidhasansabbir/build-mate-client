@@ -3,35 +3,46 @@ import { NavLink, useNavigate } from "react-router";
 import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Login = () => {
-const {logInWithEmail}=useAuth();
+  const { logInWithEmail } = useAuth();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   const sweetAlert = () => {
     Swal.fire({
-          icon: "success",
-          title: "Login Successful!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-    navigate('/')
+      icon: "success",
+      title: "Login Successful!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    navigate("/");
   };
-   const errorAlert=(msg)=>{
-      Swal.fire({
-        title: "Error!",
-        text: `${msg}`,
-        icon: "error",
-        showConfirmButton: true,
-      });
-    }
+  const errorAlert = (msg) => {
+    Swal.fire({
+      title: "Error!",
+      text: `${msg}`,
+      icon: "error",
+      showConfirmButton: true,
+    });
+  };
   const handleLoginWithEmail = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     logInWithEmail(email, password)
-      .then(() => {
+      .then((data) => {
         sweetAlert();
+        const userData = {
+          name: data?.user?.displayName,
+          email: data?.user?.email,
+          photoURL: data?.user?.photoURL,
+        };
+        axiosSecure
+          .post("/users", userData)
+          .then(() => {})
+          .catch(() => {});
       })
       .catch((err) => errorAlert(err.message));
   };

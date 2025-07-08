@@ -12,6 +12,7 @@ const ApartmentCard = ({ room }) => {
     blockName,
     apartmentNo,
     rent,
+    _id
   } = room;
   // console.log(user);
   const handleAgreement =()=>{
@@ -24,7 +25,8 @@ const ApartmentCard = ({ room }) => {
         blockName,
         apartmentNo,
         rent,
-        status: "pending"
+        status: "pending",
+        _id
       }
       axiosFetch.post("/agreement",updatedInfo)
       .then(data=>console.log(data))

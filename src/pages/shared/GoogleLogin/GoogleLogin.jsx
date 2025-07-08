@@ -1,11 +1,24 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const GoogleLogin = () => {
+    const axiosSecure = useAxiosSecure();
     const {GoogleSignIn}=useAuth()
+    
     const handleGoogleSignIn = ()=>{
         GoogleSignIn()
-        .then(data=>console.log(data))
+        .then(data=>{
+            const userData = {
+                name: data?.user?.displayName,
+                email: data?.user?.email,
+                photoURL: data?.user?.photoURL
+            }
+            axiosSecure.post('/users', userData)
+            .then(()=>{
+            })
+            .catch(()=>{})
+        })
         .catch(err=>console.log(err))
     }
     return (

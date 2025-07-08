@@ -3,7 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const MakePayment = ({ member }) => {
+const MakePayment = () => {
   const {user}=useAuth()
   const axiosSecure = useAxiosSecure();
   const {data:agreement =[],isLoading }=useQuery({

@@ -6,6 +6,7 @@ import {
   FiUserPlus,
   FiSearch,
   FiList,
+  FiUsers,
 } from "react-icons/fi";
 import {
   MdPayment,
@@ -128,7 +129,7 @@ const DashboardMenu = () => {
 
       <li>
         <NavLink
-          to="/dashboard/admin-profile"
+          to="/dashboard/manage-members"
           className={({ isActive }) =>
             `flex items-center gap-3 rounded-lg px-3 py-2 ${
               isActive
@@ -137,7 +138,7 @@ const DashboardMenu = () => {
             }`
           }
         >
-          <MdAdminPanelSettings className="text-lg" /> Admin Profile
+          <FiUsers className="text-lg" /> Manage Members
         </NavLink>
       </li>
     </ul>
