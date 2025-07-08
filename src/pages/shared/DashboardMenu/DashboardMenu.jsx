@@ -17,13 +17,17 @@ import {
   MdLocalOffer,
   MdAdminPanelSettings,
 } from "react-icons/md";
+import useAuth from "../../../hooks/useAuth";
 
 const DashboardMenu = () => {
+  const {role, isRoleLoading}=useAuth();
+  if(isRoleLoading)return "loading..."
   return (
     <ul className="space-y-1">
       <li>
         <NavLink
           to="/dashboard"
+          end
           className={({ isActive }) =>
             `flex items-center gap-3 rounded-lg px-3 py-2 ${
               isActive
@@ -32,11 +36,12 @@ const DashboardMenu = () => {
             }`
           }
         >
-          <FiHome className="text-lg" /> My Profile
+          <FiHome className="text-lg" /> {role==='admin' ? "Admin Profile":"My Profile"}
         </NavLink>
       </li>
 
-      <li>
+      {
+        role==='member' && <><li>
         <NavLink
           to="/dashboard/make-payment"
           end
@@ -65,9 +70,11 @@ const DashboardMenu = () => {
         >
           <MdHistory className="text-lg" /> Payment History
         </NavLink>
-      </li>
+      </li></>
+      }
 
-      <li>
+      {
+        role==="admin" || <li>
         <NavLink
           to="/dashboard/announcements"
           className={({ isActive }) =>
@@ -81,8 +88,10 @@ const DashboardMenu = () => {
           <MdAnnouncement className="text-lg" /> Announcements
         </NavLink>
       </li>
+      }
 
-      <li>
+      {
+        role==='admin' && <><li>
         <NavLink
           to="/dashboard/make-announcement"
           className={({ isActive }) =>
@@ -140,7 +149,8 @@ const DashboardMenu = () => {
         >
           <FiUsers className="text-lg" /> Manage Members
         </NavLink>
-      </li>
+      </li></>
+      }
     </ul>
   );
 };
