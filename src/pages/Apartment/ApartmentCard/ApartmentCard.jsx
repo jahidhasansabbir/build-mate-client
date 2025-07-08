@@ -26,7 +26,6 @@ const ApartmentCard = ({ room }) => {
         apartmentNo,
         rent,
         status: "pending",
-        _id
       }
       axiosFetch.post("/agreement",updatedInfo)
       .then(data=>console.log(data))

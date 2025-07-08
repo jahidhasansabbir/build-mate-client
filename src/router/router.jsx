@@ -10,6 +10,7 @@ import Announcements from "../pages/Dashboard/Announcements/Announcements";
 import MakePayment from "../pages/Dashboard/MakePayment/MakePayment";
 import ManageMembers from "../pages/Dashboard/ManageMembers/ManageMembers";
 import MakeAnnouncement from "../pages/Dashboard/MakeAnnouncement/MakeAnnouncement";
+import AgreementRequests from "../pages/Dashboard/AgreementRequests/AgreementRequests";
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             {
                 path: 'make-announcement',
                 Component: MakeAnnouncement
+            },
+            {
+                path: 'agreement-requests',
+                Component: AgreementRequests
             }
         ]
     }
