@@ -6,10 +6,10 @@ import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 const Register = () => {
-const {registerWithEmail,updateUserProfile}=useAuth()
+  const { registerWithEmail, updateUserProfile } = useAuth();
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
 
   const sweetAlert = () => {
     Swal.fire({
@@ -20,6 +20,7 @@ const {registerWithEmail,updateUserProfile}=useAuth()
     });
     navigate("/");
   };
+
   const errorAlert = (msg) => {
     Swal.fire({
       title: "Error!",
@@ -28,6 +29,7 @@ const {registerWithEmail,updateUserProfile}=useAuth()
       showConfirmButton: true,
     });
   };
+
   const handleSignUpWithEmail = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -35,6 +37,7 @@ const {registerWithEmail,updateUserProfile}=useAuth()
     const password = e.target.password.value;
     const photoUrl = e.target.photoUrl.value;
     const profileInfo = { name, photoUrl };
+
     if (!/[A-Z]/.test(password)) {
       return setError("Password must contain at least one uppercase letter.");
     } else if (!/[a-z]/.test(password)) {
@@ -44,65 +47,82 @@ const {registerWithEmail,updateUserProfile}=useAuth()
     } else {
       registerWithEmail(email, password)
         .then(() => {
-          updateUserProfile(profileInfo)
-          .then(()=>{
+          updateUserProfile(profileInfo).then(() => {
             const userData = {
-                name,
-                email,
-                photoURL: photoUrl
-            }
-             axiosSecure.post('/users', userData)
-            .then(()=>{
-            })
-            .catch(()=>{})
-          })
+              name,
+              email,
+              photoURL: photoUrl,
+            };
+            axiosSecure.post('/users', userData).then(() => {}).catch(() => {});
+          });
           sweetAlert();
         })
         .catch((err) => errorAlert(err.message));
     }
   };
+
   return (
-    <div className="card bg-base-100 w-11/12 my-8 border border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
-      <div className="card-body">
-        <h1 className="text-2xl font-bold md:text-4xl">Register now!</h1>
-        <form onSubmit={handleSignUpWithEmail} className="fieldset">
-          <label className="label">Name</label>
-          <input type="text" name="name" className="input border-1" placeholder="Name" />
-          <label className="label">Email</label>
+    <div className="card bg-white w-11/12 my-8 border border-gray-200 max-w-sm shrink-0 shadow-xl mx-auto rounded-2xl">
+      <div className="card-body space-y-4">
+        <h1 className="text-3xl font-bold md:text-4xl text-center text-green-600">
+          Register now!
+        </h1>
+        <form onSubmit={handleSignUpWithEmail} className="fieldset space-y-3">
+          <label className="label text-gray-700 font-medium">Name</label>
+          <input
+            type="text"
+            name="name"
+            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-green-600 focus:outline-none"
+            placeholder="Name"
+          />
+
+          <label className="label text-gray-700 font-medium">Email</label>
           <input
             type="email"
             name="email"
-            className="input border-1"
+            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-green-600 focus:outline-none"
             placeholder="Email"
           />
 
-          <label className="label">Password</label>
+          <label className="label text-gray-700 font-medium">Password</label>
           <input
             type="password"
             name="password"
-            className="input border-1"
+            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-green-600 focus:outline-none"
             placeholder="Password"
           />
-          <label className="label">Photo</label>
+
+          <label className="label text-gray-700 font-medium">Photo</label>
           <input
             type="text"
             name="photoUrl"
-            className="input border-1"
-            placeholder="PhotoURL"
+            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-green-600 focus:outline-none"
+            placeholder="Photo URL"
           />
+
           <div>
-            <a className="link link-hover">Forgot password?</a>
+            <a className="link link-hover text-sm text-green-600 hover:underline">
+              Forgot password?
+            </a>
           </div>
-          <p className="text-red-600">{error}</p>
-          <button className="btn btn-neutral mt-4">Register</button>
+
+          <p className="text-red-600 text-sm">{error}</p>
+
+          <button className="btn bg-green-600 hover:bg-green-700 text-white w-full font-semibold mt-2 transition-all">
+            Register
+          </button>
         </form>
-        <p className="text-center text-gray-400">or,</p>
-        <GoogleLogin></GoogleLogin>
+
+        <p className="text-center text-gray-400 text-sm">or</p>
+        <GoogleLogin />
       </div>
-      <p className="text-center pb-4">
+
+      <p className="text-center pb-4 text-gray-600 text-sm">
         Already have an account?{" "}
         <NavLink to="/login">
-          <span className="text-blue-700 hover:underline">Log in</span>
+          <span className="text-green-600 hover:underline font-medium">
+            Log in
+          </span>
         </NavLink>
       </p>
     </div>

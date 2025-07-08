@@ -19,6 +19,7 @@ const Login = () => {
     });
     navigate("/");
   };
+
   const errorAlert = (msg) => {
     Swal.fire({
       title: "Error!",
@@ -27,6 +28,7 @@ const Login = () => {
       showConfirmButton: true,
     });
   };
+
   const handleLoginWithEmail = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -46,37 +48,46 @@ const Login = () => {
       })
       .catch((err) => errorAlert(err.message));
   };
+
   return (
-    <div className="card bg-base-100 w-11/12 border my-10 border-base-300 max-w-sm shrink-0 shadow-2xl mx-auto">
-      <div className="card-body">
-        <h1 className="text-2xl font-bold md:text-4xl">Log in now!</h1>
-        <form className="fieldset" onSubmit={handleLoginWithEmail}>
-          <label className="label">Email</label>
+    <div className="card bg-white w-11/12 border my-10 border-gray-200 max-w-sm shrink-0 shadow-xl mx-auto rounded-2xl">
+      <div className="card-body space-y-4">
+        <h1 className="text-3xl text-green-600 font-bold md:text-4xl text-center">
+          Log in now!
+        </h1>
+        <form className="fieldset space-y-3" onSubmit={handleLoginWithEmail}>
+          <label className="label text-gray-700 font-medium">Email</label>
           <input
             type="email"
             name="email"
-            className="input border-1"
+            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-green-600 focus:outline-none"
             placeholder="Email"
           />
-          <label className="label">Password</label>
+          <label className="label text-gray-700 font-medium">Password</label>
           <input
             type="password"
             name="password"
-            className="input border-1"
+            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-green-600 focus:outline-none"
             placeholder="Password"
           />
           <div>
-            <a className="link link-hover">Forgot password?</a>
+            <a className="link link-hover text-sm text-green-600 hover:underline">
+              Forgot password?
+            </a>
           </div>
-          <button className="btn btn-neutral mt-4">Login</button>
+          <button className="btn bg-green-600 hover:bg-green-700 text-white w-full font-semibold mt-4 transition-all">
+            Login
+          </button>
         </form>
-        <p className="text-center text-gray-400">or,</p>
-        <GoogleLogin></GoogleLogin>
+        <p className="text-center text-gray-400 text-sm">or</p>
+        <GoogleLogin />
       </div>
-      <p className="text-center pb-4">
+      <p className="text-center pb-4 text-gray-600 text-sm">
         Haven't an account?{" "}
         <NavLink to="/register">
-          <span className="text-blue-700 hover:underline">Register</span>
+          <span className="text-green-600 hover:underline font-medium">
+            Register
+          </span>
         </NavLink>
       </p>
     </div>

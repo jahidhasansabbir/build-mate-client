@@ -6,8 +6,8 @@ export default function Coupons() {
   ];
 
   return (
-    <section className="bg-[#161B22] border border-[#30363D] rounded-3xl p-6 sm:p-10 md:p-14  text-[#F3F4F6] shadow-lg">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-blue-600 mb-8  text-center">
+    <section className="bg-white bg-opacity-70 backdrop-blur-sm border border-gray-200 rounded-3xl p-6 sm:p-10 md:p-14 text-gray-900 shadow-lg">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-500 mb-8 text-center">
         Exclusive Member Coupons
       </h2>
 
@@ -15,15 +15,15 @@ export default function Coupons() {
         {coupons.map(({ code, desc, expiry }) => (
           <div
             key={code}
-            className="bg-[#0D1117] border border-[#2563EB] rounded-xl p-6 flex flex-col justify-between hover:scale-[1.03] transition-transform duration-300 "
+            className="bg-green-50 bg-opacity-50 backdrop-blur-sm border border-green-200 rounded-xl p-6 flex flex-col justify-between transition-transform duration-300"
           >
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-blue-500 mb-2 tracking-wide">
+              <h3 className="text-xl sm:text-2xl font-semibold text-green-500 mb-2 tracking-wide">
                 {code}
               </h3>
-              <p className="text-sm sm:text-base text-[#9CA3AF] leading-relaxed">{desc}</p>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{desc}</p>
             </div>
-            <p className="mt-4 text-xs sm:text-sm text-blue-400 font-medium tracking-wide">
+            <p className="mt-4 text-xs sm:text-sm text-green-700 font-medium tracking-wide">
               {expiry}
             </p>
           </div>

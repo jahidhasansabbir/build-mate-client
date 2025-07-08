@@ -27,7 +27,7 @@ const Slider = () => {
               src={slider1}
               alt=""
             />
-            <div className="absolute inset-0 h-full flex px-2 bg-[#0803037c] rounded-lg items-center justify-center text-center text-white z-40">
+            <div className="absolute inset-0 h-full flex px-2 bg-[#0803034c] rounded-lg items-center justify-center text-center text-white z-40">
               <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold">
                 <i>“Your New Home Is Just a Click Away”</i>
               </h1>
@@ -42,7 +42,7 @@ const Slider = () => {
               src={slider2}
               alt=""
             />
-            <div className="absolute inset-0 h-full flex px-2 bg-[#0803037c] rounded-lg items-center justify-center text-center text-white z-40">
+            <div className="absolute inset-0 h-full flex px-2 bg-[#0803034c] rounded-lg items-center justify-center text-center text-white z-40">
               <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold">
                 <i>“Live Closer to Everything You Love”</i>
               </h1>
@@ -57,7 +57,7 @@ const Slider = () => {
               src={slider3}
               alt=""
             />
-            <div className="absolute inset-0 h-full flex px-2 bg-[#0803037c] rounded-lg items-center justify-center text-center text-white z-40">
+            <div className="absolute inset-0 h-full flex px-2 bg-[#0803034c] rounded-lg items-center justify-center text-center text-white z-40">
               <h1 className="text-2xl md:text-4xl lg:text-7xl font-bold">
                 <i>“Rent Smart. Live Better.”</i>
               </h1>

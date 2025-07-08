@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const MakeAnnouncement = () => {
-    const axiosSecure = useAxiosSecure();
+  const axiosSecure = useAxiosSecure();
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -18,17 +18,19 @@ const MakeAnnouncement = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Handle the form submission (e.g., POST to server)
     console.log("Announcement Submitted:", formData);
-    axiosSecure.post('/announcement', formData)
-    .then(res=>console.log(res.data))
-    .catch(err=>{console.log(err);})
+    axiosSecure
+      .post("/announcement", formData)
+      .then((res) => console.log(res.data))
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
     <section className="max-w-4xl mx-auto px-4 sm:px-6 md:px-10 py-12">
-      <div className="bg-[#161B22] border border-[#30363D] rounded-2xl p-8 shadow-xl backdrop-blur-md">
-        <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 mb-6">
+      <div className="bg-white/10 backdrop-blur-lg border border-gray-300 rounded-2xl p-8 shadow-lg text-black">
+        <h2 className="text-2xl sm:text-3xl font-bold text-green-500 mb-6 drop-shadow-lg">
           Make an Announcement
         </h2>
 
@@ -37,7 +39,7 @@ const MakeAnnouncement = () => {
           <div>
             <label
               htmlFor="title"
-              className="block text-sm font-medium text-[#F3F4F6] mb-1"
+              className="block text-gray-500 mb-1 font-medium"
             >
               Title
             </label>
@@ -48,8 +50,8 @@ const MakeAnnouncement = () => {
               value={formData.title}
               onChange={handleChange}
               required
-              className="w-full rounded-lg border border-[#30363D] bg-[#0D1117] text-[#F3F4F6] p-3 focus:outline-none focus:ring-2 focus:ring-blue-600 transition"
               placeholder="Enter announcement title"
+              className="w-full rounded-lg border border-gray-300 bg-white/20 text-black p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition"
             />
           </div>
 
@@ -57,7 +59,7 @@ const MakeAnnouncement = () => {
           <div>
             <label
               htmlFor="description"
-              className="block text-sm font-medium text-[#F3F4F6] mb-1"
+              className="block text-gray-500 mb-1 font-medium"
             >
               Description
             </label>
@@ -68,16 +70,16 @@ const MakeAnnouncement = () => {
               value={formData.description}
               onChange={handleChange}
               required
-              className="w-full rounded-lg border border-[#30363D] bg-[#0D1117] text-[#F3F4F6] p-3 focus:outline-none focus:ring-2 focus:ring-blue-600 transition resize-none"
               placeholder="Write your announcement here..."
-            ></textarea>
+              className="w-full rounded-lg border border-gray-300 bg-white/20 text-black p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition resize-none"
+            />
           </div>
 
           {/* Submit Button */}
           <div>
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition"
+              className="w-full bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition drop-shadow-md"
             >
               Post Announcement
             </button>

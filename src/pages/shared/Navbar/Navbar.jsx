@@ -4,22 +4,22 @@ import useAuth from "../../../hooks/useAuth";
 import Avatar from "./Avatar/Avatar";
 
 const Navbar = () => {
-    const {user,logOut} = useAuth()
+  const { user, logOut } = useAuth();
   const links = (
     <>
       <li>
-        <NavLink to='/'>Home</NavLink>
+        <NavLink to="/" className="text-black font-semibold">Home</NavLink>
       </li>
       <li>
-        <NavLink to='/apartment'>Apartment</NavLink>
+        <NavLink to="/apartment" className="text-black font-semibold">Apartment</NavLink>
       </li>
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar  text-green-900 shadow-sm 0">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden text-black">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -27,33 +27,38 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {" "}
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
+              />
             </svg>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-indigo-50 text-black rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost text-xl">Build<span className="-ml-1.5 text-blue-600">Mate</span></NavLink>
+        <NavLink to="/" className="btn btn-ghost text-xl text-black font-bold">
+          Build<span className="-ml-1.5 text-green-500">Mate</span>
+        </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-            {links}
+          {links}
         </ul>
       </div>
       <div className="navbar-end">
-        {
-            user? <Avatar user={user} logOut={logOut}></Avatar>:<NavLink to='/login' className="btn font-bold bg-blue-600">Log in</NavLink>
-        }
+        {user ? (
+          <Avatar user={user} logOut={logOut}></Avatar>
+        ) : (
+          <NavLink to="/login" className="btn font-bold bg-green-600 text-white hover:bg-green-700">
+            Log in
+          </NavLink>
+        )}
       </div>
     </div>
   );
