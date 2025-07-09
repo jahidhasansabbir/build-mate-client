@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const MakeAnnouncement = () => {
   const axiosSecure = useAxiosSecure();
@@ -15,16 +16,25 @@ const MakeAnnouncement = () => {
       [name]: value,
     }));
   };
-
+  const sweetAlert = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Announcement successfully posted!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Announcement Submitted:", formData);
-    axiosSecure
-      .post("/announcement", formData)
-      .then((res) => console.log(res.data))
-      .catch((err) => {
-        console.log(err);
+    axiosSecure.post("/announcement", formData)
+    .then(() => {
+       setFormData({ title: "", description: "" });
+        sweetAlert();
+
+      })
+      .catch(() => {
       });
+      
   };
 
   return (
