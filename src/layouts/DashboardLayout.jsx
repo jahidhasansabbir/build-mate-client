@@ -12,7 +12,7 @@ import DashboardMenu from "../pages/shared/DashboardMenu/DashboardMenu";
 
 const DashboardLayout = () => {
   return (
-    <div className="drawer lg:drawer-open  text-[#134E3B]">
+    <div className="drawer lg:drawer-open">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
 
       {/* ✅ Main Content */}

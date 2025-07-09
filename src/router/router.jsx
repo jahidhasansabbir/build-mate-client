@@ -17,6 +17,7 @@ import Forbidden from "../pages/shared/Forbidden/Forbidden";
 import MemberRoute from "../Provider/MemberRoute";
 import AdminRoute from "../Provider/AdminRoute";
 import Payment from "../pages/Dashboard/Payment/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 
 
 export const router = createBrowserRouter([
@@ -77,6 +78,10 @@ export const router = createBrowserRouter([
             {
                 path: 'payment/:id',
                 element:<MemberRoute><Payment></Payment></MemberRoute>
+            },
+            {
+                path:'payment-history',
+                Component: PaymentHistory
             }
         ]
     },

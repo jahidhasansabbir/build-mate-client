@@ -50,19 +50,19 @@ const ApartmentCard = ({ room }) => {
 
         <div className="text-sm sm:text-base text-gray-600 space-y-1 mb-5 leading-relaxed">
           <p>
-            <span className="font-medium text-green-600">Floor:</span> {floorNo}
+            <span className="font-medium text-green-500">Floor:</span> {floorNo}
           </p>
           <p>
-            <span className="font-medium text-green-600">Block:</span> {blockName}
+            <span className="font-medium text-green-500">Block:</span> {blockName}
           </p>
           <p>
-            <span className="font-medium text-green-600">Rent:</span> ৳{rent.toLocaleString()}
+            <span className="font-medium text-green-500">Rent:</span> ৳{rent.toLocaleString()}
           </p>
         </div>
 
         <button
           onClick={handleAgreement}
-          className="mt-2 w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-sm sm:text-base"
+          className="mt-2 w-full text-center bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-sm sm:text-base"
         >
           Agreement
         </button>
