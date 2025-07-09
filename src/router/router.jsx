@@ -76,7 +76,7 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><ManageCoupons></ManageCoupons></AdminRoute>
             },
             {
-                path: 'payment/:id',
+                path: 'payment/:id/:month',
                 element:<MemberRoute><Payment></Payment></MemberRoute>
             },
             {

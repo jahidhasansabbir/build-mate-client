@@ -11,7 +11,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 const Payment = () => {
   const axiosSecure = useAxiosSecure();
   const { id } = useParams();
-
+  const {month} =useParams();
   const { data: agreement, isLoading } = useQuery({
     queryKey: ["agreement", id],
     queryFn: async () => {
@@ -31,7 +31,7 @@ const Payment = () => {
   return (
     <section className="py-10 px-4 max-w-2xl mx-auto">
       <Elements stripe={stripePromise}>
-          <CheckoutForm agreement={agreement} />
+          <CheckoutForm agreement={agreement} month={month}/>
 
       </Elements>
     </section>

@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 
-const CheckoutForm = ({ agreement }) => {
+const CheckoutForm = ({ agreement, month }) => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
@@ -20,7 +20,8 @@ const CheckoutForm = ({ agreement }) => {
     const paymentData = {
       email: agreement?.userEmail,
       amount: agreement?.rent,
-      coupon
+      coupon,
+      month
     };
 
     try {

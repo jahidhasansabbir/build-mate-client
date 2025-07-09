@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
@@ -8,6 +8,7 @@ const MakePayment = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate()
+  const [selectedMonth, setSelectedMonth]=useState("");
   const { data: agreement = [], isLoading } = useQuery({
     queryKey: ["agreement", user?.email],
     queryFn: async () => {
@@ -20,8 +21,11 @@ const MakePayment = () => {
 
   const handlePayment = e=>{
     e.preventDefault()
-    navigate(`/dashboard/payment/${agreement?._id}`)
+    navigate(`/dashboard/payment/${agreement?._id}/${selectedMonth}`)
 
+  }
+  const handleMonth=e=>{
+    setSelectedMonth(e.target.value)
   }
 
   return (
@@ -88,7 +92,7 @@ const MakePayment = () => {
             <label className="block text-gray-500 mb-1">Select Month</label>
             <select
               className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
-              defaultValue=""
+              onChange={handleMonth} value={selectedMonth}
               required
             >
               <option disabled value="">
