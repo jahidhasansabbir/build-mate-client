@@ -2,9 +2,13 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import ApartmentCard from "../ApartmentCard/ApartmentCard";
 import useAxios from "../../../hooks/useAxios";
+import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Apartment = () => {
   const axiosFetch = useAxios();
+  const {user, isLoadingUser}=useAuth();
+  const axiosSecure = useAxiosSecure();
   const [page, setPage] = useState(1);
   const limit = 6;
 
@@ -22,6 +26,17 @@ const Apartment = () => {
       return res.data;
     },
   });
+
+
+    const { data: role} = useQuery({
+      enabled:!!user?.email && !isLoadingUser,
+      queryKey: ['role', user?.email],
+      queryFn: async () => {
+        const res = await axiosSecure(`/role/${user?.email}`);
+        return res.data;
+      },
+    });
+
 
   const rooms = data.rooms || [];
   const totalPages = data.totalPages || 1;
@@ -69,7 +84,7 @@ const Apartment = () => {
       {/* Apartments Grid */}
       <div className="grid gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
         {rooms.length > 0 ? (
-          rooms.map((room) => <ApartmentCard key={room._id} room={room} />)
+          rooms.map((room) => <ApartmentCard key={room._id} room={room} role={role} />)
         ) : (
           <p className="text-center text-gray-500 text-lg col-span-full">
             🚫 No apartments found in this rent range.

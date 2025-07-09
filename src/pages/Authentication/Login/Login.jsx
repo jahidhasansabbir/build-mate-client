@@ -44,7 +44,7 @@ const Login = () => {
         axiosSecure
           .post("/users", userData)
           .then(() => {})
-          .catch(() => {});
+          .catch((err) => errorAlert(err.message));
       })
       .catch((err) => errorAlert(err.message));
   };

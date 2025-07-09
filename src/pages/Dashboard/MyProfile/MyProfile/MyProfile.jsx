@@ -17,7 +17,6 @@ const MyProfile = () => {
         }
     })
     const role = agreement?.user?.role;
-    console.log(role);
     if(isLoading)return "loading..."
     return (
         <div>

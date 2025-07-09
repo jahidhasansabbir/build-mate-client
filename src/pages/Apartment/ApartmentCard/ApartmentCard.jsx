@@ -1,8 +1,9 @@
 import {  useNavigate } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
-const ApartmentCard = ({ room }) => {
+const ApartmentCard = ({ room , role}) => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate()
@@ -14,10 +15,39 @@ const ApartmentCard = ({ room }) => {
     rent,
     _id,
   } = room;
-
+ const errorAlert = (msg) => {
+  Swal.fire({
+    title: "Action Denied",
+    text: `${msg}`,
+    icon: "warning",
+    iconColor: "#f87171", 
+    confirmButtonText: "Got it",
+    confirmButtonColor: "#10b981", 
+    background: "#fefefe",
+    customClass: {
+      popup: "rounded-xl shadow-lg",
+      title: "text-lg font-semibold",
+      confirmButton: "px-5 py-2 rounded-md text-white",
+    },
+  });
+};
+const sweetAlert = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Agreement submitted!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  };
   const handleAgreement = () => {
    if (!user) {
         return navigate("/login", { state: { from: location.pathname } });
+    }
+    else if(role==='member'){
+      return errorAlert('You have already submitted an agreement for this apartment.');
+    }
+    else if(role === 'admin'){
+      return errorAlert('You are an admin.')
     }
     else {
       const updatedInfo = {
@@ -31,8 +61,11 @@ const ApartmentCard = ({ room }) => {
       };
       axiosSecure
         .post("/agreement", updatedInfo)
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err));
+        .then((res) => {if(res.data.message){errorAlert(res.data.message);}
+      else{
+        sweetAlert();
+      }})
+        .catch(() => {});
     }
   };
 

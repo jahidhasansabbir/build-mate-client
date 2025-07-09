@@ -38,7 +38,7 @@ const GoogleLogin = () => {
             axiosSecure.post('/users', userData)
             .then(()=>{
             })
-            .catch(()=>{})
+            .catch((err) => errorAlert(err.message))
         })
         .catch(()=>{errorAlert()})
     }

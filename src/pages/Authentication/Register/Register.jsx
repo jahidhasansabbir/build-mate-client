@@ -54,7 +54,7 @@ const Register = () => {
               name,
               email,
               photoURL: photoUrl,
-            };axiosSecure.post('/users', userData).then(() => {}).catch(() => {});
+            };axiosSecure.post('/users', userData).then(() => {}).catch((err) => errorAlert(err.message));
         })
         .catch((err) => errorAlert(err.message));
     }
