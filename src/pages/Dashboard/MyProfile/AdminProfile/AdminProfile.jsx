@@ -1,10 +1,13 @@
 import React from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import useAuth from '../../../../hooks/useAuth';
 
 const AdminProfile = ({ agreement }) => {
   const axiosSecure = useAxiosSecure();
+  const {isUserLoading}=useAuth;
   const { data: adminStats, isLoading } = useQuery({
+    enabled: !isUserLoading,
     queryKey: ["admin-profile"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/admin-profile`);

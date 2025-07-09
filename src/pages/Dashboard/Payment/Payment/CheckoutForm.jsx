@@ -1,6 +1,8 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useState } from "react";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const CheckoutForm = ({ agreement, month }) => {
   const stripe = useStripe();
@@ -11,7 +13,15 @@ const CheckoutForm = ({ agreement, month }) => {
   const [rentAmount, setRentAmount] = useState(agreement?.rent)
   const [isApplied, setIsApplied] = useState(false);
   const [coupon, setCoupon] = useState(null);
-
+  const navigate = useNavigate();
+  const sweetAlert = () => {
+      Swal.fire({
+        icon: "success",
+        title: "Payment successful!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
@@ -46,8 +56,8 @@ const CheckoutForm = ({ agreement, month }) => {
       if (error) {
         setErrorMessage(error.message);
       } else if (paymentIntent.status === "succeeded") {
-        alert("✅ Payment successful!");
-        // Optionally: update backend with status
+        sweetAlert()
+        navigate('/dashboard/payment-history')
       }
     } catch (err) {
       console.log(err);

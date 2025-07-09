@@ -27,7 +27,7 @@ const PaymentHistory = () => {
         Payment History
       </h2>
 
-      {payments.length === 0 ? (
+      {payments?.length === 0 ? (
         <p className="text-center text-gray-500 text-lg">No payment history found.</p>
       ) : (
         <div className="overflow-x-auto rounded-xl shadow border border-gray-200">
