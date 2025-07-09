@@ -58,6 +58,7 @@ const sweetAlert = () => {
         apartmentNo,
         rent,
         status: "pending",
+        
       };
       axiosSecure
         .post("/agreement", updatedInfo)
