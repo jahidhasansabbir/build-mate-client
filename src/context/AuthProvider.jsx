@@ -10,11 +10,9 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.config";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../hooks/useAxiosSecure";
+
 const provider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
-  const axiosSecure = useAxiosSecure();
   const [user, setUser] = useState(null);
   const [isLoadingUser, setIsLoadingUser] = useState(true);
 
@@ -37,14 +35,7 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const { data: role, isLoading:isRoleLoading } = useQuery({
-    enabled: !isLoadingUser && !!user?.email,
-    queryKey: ['role', user?.email],
-    queryFn: async () => {
-      const res = await axiosSecure(`/role/${user?.email}`);
-      return res.data;
-    },
-  });
+  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currenUser) => {
@@ -61,9 +52,7 @@ const AuthProvider = ({ children }) => {
     registerWithEmail,
     updateUserProfile,
     logInWithEmail,
-    logOut,
-    role,
-    isRoleLoading
+    logOut
   };
   return <AuthContext value={userInfo}>{children}</AuthContext>;
 };

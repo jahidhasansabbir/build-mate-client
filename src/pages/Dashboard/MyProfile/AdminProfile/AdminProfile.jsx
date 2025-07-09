@@ -5,9 +5,9 @@ import { useQuery } from '@tanstack/react-query';
 const AdminProfile = ({ agreement }) => {
   const axiosSecure = useAxiosSecure();
   const { data: adminStats, isLoading } = useQuery({
-    queryKey: ["admin-profile", agreement?.userEmail],
+    queryKey: ["admin-profile"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/admin-profile/${agreement?.userEmail}`);
+      const res = await axiosSecure.get(`/admin-profile`);
       return res.data;
     }
   });

@@ -1,12 +1,11 @@
-import { useNavigate } from "react-router";
+import {  useNavigate } from "react-router";
 import useAuth from "../../../hooks/useAuth";
-import useAxios from "../../../hooks/useAxios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ApartmentCard = ({ room }) => {
-  const navigate = useNavigate();
   const { user } = useAuth();
-  const axiosFetch = useAxios();
-
+  const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate()
   const {
     apartmentImage,
     floorNo,
@@ -17,7 +16,9 @@ const ApartmentCard = ({ room }) => {
   } = room;
 
   const handleAgreement = () => {
-    if (!user) return navigate("/login");
+   if (!user) {
+        return navigate("/login", { state: { from: location.pathname } });
+    }
     else {
       const updatedInfo = {
         userName: user?.displayName,
@@ -28,7 +29,7 @@ const ApartmentCard = ({ room }) => {
         rent,
         status: "pending",
       };
-      axiosFetch
+      axiosSecure
         .post("/agreement", updatedInfo)
         .then((data) => console.log(data))
         .catch((err) => console.log(err));

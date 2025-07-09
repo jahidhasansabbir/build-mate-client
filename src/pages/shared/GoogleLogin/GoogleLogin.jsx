@@ -1,14 +1,35 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router';
 
 const GoogleLogin = () => {
     const axiosSecure = useAxiosSecure();
     const {GoogleSignIn}=useAuth()
-    
+    const navigate = useNavigate();
+    const location = useLocation();
+    const sweetAlert = () => {
+    Swal.fire({
+      icon: "success",
+      title: "Login Successful!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    navigate(location.state?.from || '/');
+  };
+  const errorAlert = (msg) => {
+      Swal.fire({
+        title: "Error!",
+        text: `${msg}`,
+        icon: "error",
+        showConfirmButton: true,
+      });
+    };
     const handleGoogleSignIn = ()=>{
         GoogleSignIn()
         .then(data=>{
+            sweetAlert();
             const userData = {
                 name: data?.user?.displayName,
                 email: data?.user?.email,
@@ -19,7 +40,7 @@ const GoogleLogin = () => {
             })
             .catch(()=>{})
         })
-        .catch(err=>console.log(err))
+        .catch(()=>{errorAlert()})
     }
     return (
        <button onClick={handleGoogleSignIn} className="btn bg-white text-black border-[#e5e5e5]">

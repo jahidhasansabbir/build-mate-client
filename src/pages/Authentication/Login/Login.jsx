@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink,  useLocation, useNavigate } from "react-router";
 import GoogleLogin from "../../shared/GoogleLogin/GoogleLogin";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
@@ -9,7 +9,7 @@ const Login = () => {
   const { logInWithEmail } = useAuth();
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
-
+  const location = useLocation()
   const sweetAlert = () => {
     Swal.fire({
       icon: "success",
@@ -17,7 +17,7 @@ const Login = () => {
       showConfirmButton: false,
       timer: 1500,
     });
-    navigate("/");
+    navigate(location.state?.from || '/');
   };
 
   const errorAlert = (msg) => {

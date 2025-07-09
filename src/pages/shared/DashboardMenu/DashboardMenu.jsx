@@ -18,9 +18,20 @@ import {
   MdAdminPanelSettings,
 } from "react-icons/md";
 import useAuth from "../../../hooks/useAuth";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const DashboardMenu = () => {
-  const { role, isRoleLoading } = useAuth();
+  const {user, isLoadingUser}=useAuth();
+  const axiosSecure = useAxiosSecure();
+  const { data: role, isLoading:isRoleLoading } = useQuery({
+      enabled: !isLoadingUser,
+      queryKey: ['role', user?.email],
+      queryFn: async () => {
+        const res = await axiosSecure(`/role/${user?.email}`);
+        return res.data;
+      },
+    });
   if (isRoleLoading) return "loading...";
   return (
     <ul className="space-y-1">

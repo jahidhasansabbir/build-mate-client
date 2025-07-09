@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import GoogleLogin from '../../shared/GoogleLogin/GoogleLogin';
-import { NavLink, useNavigate } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
@@ -10,7 +10,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
-
+  const location = useLocation()
   const sweetAlert = () => {
     Swal.fire({
       icon: "success",
@@ -18,7 +18,7 @@ const Register = () => {
       showConfirmButton: false,
       timer: 1500,
     });
-    navigate("/");
+    navigate(location.state?.from || '/');
   };
 
   const errorAlert = (msg) => {
@@ -48,14 +48,13 @@ const Register = () => {
       registerWithEmail(email, password)
         .then(() => {
           updateUserProfile(profileInfo).then(() => {
-            const userData = {
+            sweetAlert();
+          });
+           const userData = {
               name,
               email,
               photoURL: photoUrl,
-            };
-            axiosSecure.post('/users', userData).then(() => {}).catch(() => {});
-          });
-          sweetAlert();
+            };axiosSecure.post('/users', userData).then(() => {}).catch(() => {});
         })
         .catch((err) => errorAlert(err.message));
     }

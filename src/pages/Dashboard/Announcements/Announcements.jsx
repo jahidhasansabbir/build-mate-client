@@ -1,13 +1,13 @@
 import React from "react";
-import useAxios from "../../../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Announcements = () => {
-  const axiosFetch = useAxios();
+  const axiosSecure = useAxiosSecure();
   const { data: announcements = [], isLoading } = useQuery({
     queryKey: ["announcements"],
     queryFn: async () => {
-      const res = await axiosFetch.get("/announcements");
+      const res = await axiosSecure.get("/announcements");
       return res.data;
     },
   });

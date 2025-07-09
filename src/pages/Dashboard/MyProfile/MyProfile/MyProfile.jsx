@@ -6,16 +6,18 @@ import { useQuery } from '@tanstack/react-query';
 import MemberProfile from "../MemberProfile/MemberProfile"
 import AdminProfile from '../AdminProfile/AdminProfile';
 const MyProfile = () => {
-    const {user}=useAuth()
+    const {user,isLoadingUser}=useAuth()
     const axiosSecure = useAxiosSecure();
     const {data:agreement =[],isLoading }=useQuery({
         queryKey: ['agreement', user?.email],
+        enabled: !isLoadingUser,
         queryFn: async ()=>{
             const res = await axiosSecure.get(`agreement/${user?.email}`)
             return res.data;
         }
     })
     const role = agreement?.user?.role;
+    console.log(role);
     if(isLoading)return "loading..."
     return (
         <div>
