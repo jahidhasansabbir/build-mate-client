@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-
+import Loading from "../../shared/Loading/Loading"
 export default function Coupons() {
   
   const axiosSecure = useAxiosSecure()
@@ -11,8 +11,9 @@ export default function Coupons() {
       return res.data
     }
   })
+  if(isLoading)return <Loading></Loading>
   return (
-    <section className="bg-white bg-opacity-70 backdrop-blur-sm border border-gray-200 rounded-3xl p-6 sm:p-10 md:p-14 text-gray-900 shadow-lg">
+    <section className="bg-white bg-opacity-70 backdrop-blur-sm border border-gray-200 rounded-3xl p-8 text-gray-900 shadow-lg">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-500 mb-8 text-center">
         Exclusive Member Coupons
       </h2>

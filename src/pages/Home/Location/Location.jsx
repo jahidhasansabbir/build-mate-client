@@ -2,7 +2,6 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// Fix default icon issue in React-Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -12,20 +11,15 @@ L.Icon.Default.mergeOptions({
 });
 
 export default function Location() {
-  // Example coordinates for a location
-  const position = [23.8103, 90.4125]; // Dhaka, Bangladesh — replace with your apartment location
-
+  const position = [23.8103, 90.4125]; 
   return (
-    <section className="bg-white bg-opacity-30 backdrop-blur-sm border border-gray-50 rounded-3xl p-10 text-gray-900 shadow-lg">
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-green-500 mb-10 text-center">
-        Apartment Location & Directions
+    <section className="bg-white bg-opacity-30 backdrop-blur-sm border border-gray-50 rounded-3xl p-8 text-gray-900 shadow-lg">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-500 mb-8 text-center">
+        Apartment Location 
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Text Info */}
         <div>
-          <h3 className="text-2xl font-semibold mb-6 text-green-400">
-            Prime Location in the Heart of the City
-          </h3>
           <p className="text-base sm:text-lg text-gray-800 leading-relaxed mb-6">
             Our apartments are situated in the vibrant city center, with easy access to public transport, shopping centers, and recreational parks. Whether you’re commuting to work or exploring local sights, everything is within reach.
           </p>
