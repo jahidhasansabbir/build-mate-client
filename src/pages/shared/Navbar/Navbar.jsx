@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import Avatar from "./Avatar/Avatar";
 import Loading from "../Loading/Loading";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -53,12 +54,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <NavLink
-            to="/"
-            className=" text-xl text-black font-bold"
-          >
-            Build<span className=" text-green-500">Mate</span>
-          </NavLink>
+          <Logo></Logo>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>

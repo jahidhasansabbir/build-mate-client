@@ -25,7 +25,7 @@ const Home = () => {
       </div>
       <div
         className="w-11/12 max-w-[1600px] mx-auto pb-8 md:pb-12"
-        data-aos="fade-up"
+        
       >
         <AboutTheBuilding />
       </div>

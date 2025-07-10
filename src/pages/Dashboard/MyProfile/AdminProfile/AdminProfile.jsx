@@ -6,9 +6,9 @@ import Loading from '../../../shared/Loading/Loading';
 
 const AdminProfile = ({ agreement }) => {
   const axiosSecure = useAxiosSecure();
-  const {isUserLoading}=useAuth;
+  const {user}=useAuth();
   const { data: adminStats, isLoading } = useQuery({
-    enabled: !isUserLoading,
+    enabled: !!user?.accessToken,
     queryKey: ["admin-profile"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/admin-profile`);
@@ -17,11 +17,11 @@ const AdminProfile = ({ agreement }) => {
   });
 
   const apartment = adminStats?.apartments;
-  const user = adminStats?.user;
+  const userData = adminStats?.user;
   const totalRooms = apartment?.length;
   const availableRooms = apartment?.filter(room => room.available === true).length;
-  const users = user?.length;
-  const members = user?.filter(person => person?.role === "member").length;
+  const users = userData?.length;
+  const members = userData?.filter(person => person?.role === "member").length;
 
   const availablePercent = ((availableRooms / totalRooms) * 100).toFixed(1);
   const unavailablePercent = (100 - availablePercent).toFixed(1);

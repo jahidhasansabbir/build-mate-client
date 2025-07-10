@@ -7,11 +7,11 @@ import MemberProfile from "../MemberProfile/MemberProfile"
 import AdminProfile from '../AdminProfile/AdminProfile';
 import Loading from '../../../shared/Loading/Loading';
 const MyProfile = () => {
-    const {user,isLoadingUser}=useAuth()
+    const {user}=useAuth()
     const axiosSecure = useAxiosSecure();
     const {data:agreement =[],isLoading }=useQuery({
         queryKey: ['agreement', user?.email],
-        enabled: !isLoadingUser,
+        enabled: !!user.accessToken,
         queryFn: async ()=>{
             const res = await axiosSecure.get(`agreement/${user?.email}`)
             return res.data;

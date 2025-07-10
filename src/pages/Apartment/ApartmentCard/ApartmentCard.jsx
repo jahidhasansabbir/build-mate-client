@@ -80,7 +80,7 @@ const sweetAlert = () => {
 
       <div className="p-4 sm:p-6 md:p-8 text-gray-800">
         <h3 className="text-xl sm:text-2xl font-semibold mb-2">
-          Apartment {apartmentNo}
+          {apartmentNo}
         </h3>
 
         <div className="text-sm sm:text-base text-gray-600 space-y-1 mb-5 leading-relaxed">

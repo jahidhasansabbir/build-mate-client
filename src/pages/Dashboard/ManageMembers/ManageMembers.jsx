@@ -2,11 +2,14 @@ import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../shared/Loading/Loading";
+import useAuth from "../../../hooks/useAuth";
 
 const ManageMembers = () => {
   const axiosSecure = useAxiosSecure();
+  const {user} =useAuth();
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["user"],
+    enabled: !!user.accessToken,
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
       return res.data;

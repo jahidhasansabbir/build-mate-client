@@ -10,14 +10,18 @@ import {
 } from "react-icons/fi";
 import DashboardMenu from "../pages/shared/DashboardMenu/DashboardMenu";
 import Aos from "aos";
+import useAuth from "../hooks/useAuth";
+import Loading from "../pages/shared/Loading/Loading";
 
 const DashboardLayout = () => {
+  const {isLoadingUser}=useAuth();
    useEffect(() => {
       Aos.init({
         duration: 1000, 
         once: false,     
       });
     }, []);
+    if(isLoadingUser)return<Loading></Loading>
   return (
     <div className="drawer lg:drawer-open">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />

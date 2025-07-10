@@ -1,17 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router";
-
+import Logo from "../Navbar/Logo";
+import FooterLogo from "./FooterLogo"
 const Footer = () => {
   return (
     <footer className=" bg-neutral">
       <div className="footer sm:footer-horizontal text-neutral-content py-10 max-w-[1600px] w-11/12 mx-auto">
       <aside>
-       
         <p>
-         <NavLink to="/" className="font-bold text-xl">
-          Build
-          <span className="text-blue-500">Mate</span>
-        </NavLink>
+        <FooterLogo></FooterLogo>
           <br />
           Find Your Next Home. Where Comfort Meets Convenience.
         </p>
