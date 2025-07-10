@@ -113,7 +113,7 @@ const CheckoutForm = ({ agreement, month }) => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-2xl shadow-lg max-w-md mx-auto space-y-4 border-2 border-gray-200">
+    <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4 border-2 border-gray-200">
       <form onSubmit={handleSubmit} className="space-y-4">
         <h2 className="text-2xl font-semibold text-center text-green-600">
           Pay Your Rent
@@ -136,7 +136,7 @@ const CheckoutForm = ({ agreement, month }) => {
         <button
           type="submit"
           disabled={!stripe || processing}
-          className={`w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 rounded-md transition ${
+          className={`w-full md:w-fit bg-green-500 btn hover:bg-green-600 text-white font-medium  rounded-md transition ${
             processing ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -150,7 +150,7 @@ const CheckoutForm = ({ agreement, month }) => {
         >
           Have a coupon?
         </label>
-        <form onSubmit={handleCoupon} className="flex gap-3">
+        <form onSubmit={handleCoupon} className="flex flex-col md:flex-row gap-3">
           <input
             id="coupon"
             type="text"

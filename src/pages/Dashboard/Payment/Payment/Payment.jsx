@@ -26,7 +26,7 @@ const Payment = () => {
   }
 
   return (
-    <section data-aos="fade-up" className="py-10 px-4 max-w-2xl mx-auto">
+    <section data-aos="fade-up" className="py-10 max-w-3xl mx-auto">
       <Elements stripe={stripePromise}>
           <CheckoutForm agreement={agreement} month={month}/>
 

@@ -38,7 +38,7 @@ const MakeAnnouncement = () => {
   };
 
   return (
-    <section data-aos="fade-up" className="max-w-4xl py-10">
+    <section data-aos="fade-up" className="max-w-4xl mx-auto py-10">
       <div className="bg-white/10 backdrop-blur-lg border border-gray-300 rounded-2xl p-8 shadow-lg text-black">
         <h2 className="text-2xl sm:text-3xl font-bold text-green-500 mb-6 drop-shadow-lg">
           Make an Announcement

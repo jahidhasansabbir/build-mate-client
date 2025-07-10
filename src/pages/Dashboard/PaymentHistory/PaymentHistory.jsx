@@ -23,7 +23,7 @@ const PaymentHistory = () => {
   }
 
   return (
-    <section data-aos="fade-up" className="max-w-6xl mx-auto p-6">
+    <section data-aos="fade-up" className="max-w-4xl mx-auto py-10">
       <h2 className="text-3xl font-bold text-green-500 text-center mb-8">
         Payment History
       </h2>
