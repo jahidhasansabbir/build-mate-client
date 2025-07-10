@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink, Outlet } from "react-router";
+import Logo from "../pages/shared/Navbar/Logo"
 import {
   FiMenu,
   FiHome,
@@ -29,9 +30,9 @@ const DashboardLayout = () => {
       {/* ✅ Main Content */}
       <div className="drawer-content  flex flex-col">
         {/* ✅ Top navbar (Mobile) */}
-        <div className="w-full shadow-sm sticky top-0 z-50 text-[#000000] lg:hidden bg-base-100">
-          <div className="navbar  p-0 w-11/12 mx-auto">
-            <NavLink to='/' className=" flex-1 text-xl font-bold">Logo</NavLink>
+        <div className="w-full shadow-sm sticky top-0 z-20 text-[#000000] lg:hidden bg-base-100">
+          <div className="navbar justify-between  p-0 w-11/12 mx-auto">
+            <Logo/>
             <div className="flex-none">
               <label
                 htmlFor="dashboard-drawer"
@@ -53,7 +54,7 @@ const DashboardLayout = () => {
       <div className="drawer-side border-r border-gray-100 z-20">
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
         <aside className="menu p-4 w-64 min-h-full bg-gradient-to-bl from-green-50 via-purple-50 to-green-50   space-y-1">
-          <h2 className="text-2xl font-bold mb-4 px-2 text-green-400">Menu</h2>
+          <div className="px-3"><Logo></Logo></div>
 
           {/* Dashboard menu here  */}
           <DashboardMenu />

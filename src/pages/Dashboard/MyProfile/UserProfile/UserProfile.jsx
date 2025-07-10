@@ -10,7 +10,7 @@ import {
 
 const UserProfile = ({ user }) => {
   return (
-    <section className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-10">
+    <section className="max-w-4xl mx-auto py-10">
       <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-md p-6 sm:p-10 space-y-6 text-black">
         {/* Profile Header */}
         <div className="flex flex-col sm:flex-row items-center gap-6">

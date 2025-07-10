@@ -22,10 +22,10 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
 const DashboardMenu = () => {
-  const {user, isLoadingUser}=useAuth();
+  const {user}=useAuth();
   const axiosSecure = useAxiosSecure();
   const { data: role, } = useQuery({
-      enabled: !isLoadingUser,
+      enabled: !!user.accessToken,
       queryKey: ['role', user?.email],
       queryFn: async () => {
         const res = await axiosSecure(`/role/${user?.email}`);
