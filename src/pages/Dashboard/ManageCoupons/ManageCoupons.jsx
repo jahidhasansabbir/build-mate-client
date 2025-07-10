@@ -5,11 +5,11 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../shared/Loading/Loading";
+import CouponRow from "./CouponRow";
 
 
 const ManageCoupons = () => {
   const axiosSecure = useAxiosSecure();
-
   const { data: coupons, isLoading, refetch } = useQuery({
     queryKey: ["coupons"],
     queryFn: async () => {
@@ -104,57 +104,8 @@ const ManageCoupons = () => {
     }
   };
 
-  const handleEdit = async (coupon) => {
-    const { value: formValues } = await Swal.fire({
-      title: `
-        <p class="text-3xl font-semibold text-green-600">
-          Edit Coupon
-        </p>`,
-      html: `
-        <div class="space-y-4 !w-10/12 text-left">
-          <input id="edit-code" class="swal2-input !w-full !text-black" value="${coupon.code}" />
-          <input id="edit-discount" type="number" class="swal2-input !w-full !text-black" value="${coupon.discount}" />
-          <textarea id="edit-description" class="swal2-textarea !w-full !text-black">${coupon.description}</textarea>
-        </div>
-      `,
-      background: "#fff",
-      showCancelButton: true,
-      confirmButtonText: "Update",
-      preConfirm: () => {
-        const code = document.getElementById("edit-code").value.trim();
-        const discount = document.getElementById("edit-discount").value.trim();
-        const description = document.getElementById("edit-description").value.trim();
-        if (!code || !discount || !description) {
-          Swal.showValidationMessage("All fields are required");
-          return false;
-        }
-        return { code, discount: parseInt(discount), description };
-      },
-    });
-
-    if (formValues) {
-      console.log("Edit Submitted:", formValues);
-      axiosSecure.patch(`/coupons/${coupon._id}`, formValues).then(refetch);
-    }
-  };
-
-  const handleDelete = (couponId) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "This will permanently delete the coupon.",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "Cancel",
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#aaa",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure.delete(`/coupons/${couponId}`).then(refetch);
-        Swal.fire("Deleted!", "Coupon has been removed.", "success");
-      }
-    });
-  };
+  
+ 
  
 
   return (
@@ -183,30 +134,7 @@ const ManageCoupons = () => {
           </thead>
           <tbody>
             {coupons?.map((coupon) => (
-              <tr
-                key={coupon._id}
-                className="border-b border-gray-200 hover:bg-white/20 transition"
-              >
-                <td className="px-6 py-4 font-medium text-green-700">{coupon.code}</td>
-                <td className="px-6 py-4">{coupon.discount}%</td>
-                <td className="px-6 py-4">{coupon.description}</td>
-                <td className="px-6 py-4 flex justify-center items-center gap-4">
-                  <button
-                    onClick={() => handleEdit(coupon)}
-                    className="text-green-600 hover:text-green-800"
-                    title="Edit"
-                  >
-                    <FaEdit />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(coupon._id)}
-                    className="text-red-600 hover:text-red-800"
-                    title="Delete"
-                  >
-                    <FaTrashAlt />
-                  </button>
-                </td>
-              </tr>
+              <CouponRow key={coupon._id} coupon={coupon} refetch={refetch}></CouponRow>
             ))}
             {coupons?.length === 0 && (
               <tr>
