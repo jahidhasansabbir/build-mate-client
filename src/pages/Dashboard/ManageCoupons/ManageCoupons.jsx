@@ -109,14 +109,14 @@ const ManageCoupons = () => {
  
 
   return (
-    <section data-aos="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10">
+    <section data-aos="fade-up" className="max-w-4xl mx-auto  py-10">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-green-500">
           Manage Coupons
         </h2>
         <button
           onClick={handleAddCoupon}
-          className="flex items-center gap-2 bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow transition"
+          className="flex items-center gap-2 bg-green-500 hover:bg-green-700 btn text-white shadow transition"
         >
           <MdAddCircleOutline className="text-lg" /> Add Coupon
         </button>

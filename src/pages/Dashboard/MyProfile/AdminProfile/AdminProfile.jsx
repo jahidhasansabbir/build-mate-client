@@ -31,7 +31,7 @@ const AdminProfile = ({ agreement }) => {
   }
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10">
+    <section className="max-w-7xl py-10">
       <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 md:p-10 shadow-lg text-black">
         {/* Admin Info */}
         <div className="flex flex-col md:flex-row items-center gap-6 mb-10">

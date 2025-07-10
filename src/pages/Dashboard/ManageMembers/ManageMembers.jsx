@@ -28,7 +28,7 @@ const ManageMembers = () => {
   if (isLoading) return <Loading></Loading>;
 
   return (
-    <section data-aos="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10">
+    <section data-aos="fade-up" className="max-w-4xl mx-auto py-10">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-500 mb-8 text-center">
         Manage Members
       </h2>
@@ -55,7 +55,7 @@ const ManageMembers = () => {
                 <td className="px-4 py-3 text-center">
                   <button
                     onClick={() => handleRemove(member._id)}
-                    className="px-4 py-1 rounded-md bg-red-500 hover:bg-red-700 text-white font-medium transition"
+                    className="px-2 py-1 rounded-sm bg-red-500 hover:bg-red-700 text-white font-medium transition"
                   >
                     Remove
                   </button>
