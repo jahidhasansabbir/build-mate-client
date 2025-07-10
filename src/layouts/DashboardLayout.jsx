@@ -16,11 +16,11 @@ const DashboardLayout = () => {
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
 
       {/* ✅ Main Content */}
-      <div className="drawer-content flex flex-col">
+      <div className="drawer-content  flex flex-col">
         {/* ✅ Top navbar (Mobile) */}
-        <div className="w-full shadow-md text-[#000000] lg:hidden z-10">
-          <div className="navbar p-0 w-11/12 mx-auto">
-            <div className="flex-1 text-xl font-bold">Dashboard</div>
+        <div className="w-full shadow-sm sticky top-0 z-50 text-[#000000] lg:hidden bg-base-100">
+          <div className="navbar  p-0 w-11/12 mx-auto">
+            <NavLink to='/' className=" flex-1 text-xl font-bold">Logo</NavLink>
             <div className="flex-none">
               <label
                 htmlFor="dashboard-drawer"
@@ -39,7 +39,7 @@ const DashboardLayout = () => {
       </div>
 
       {/* ✅ Sidebar */}
-      <div className="drawer-side z-20">
+      <div className="drawer-side border-r border-gray-100 z-20">
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
         <aside className="menu p-4 w-64 min-h-full bg-gradient-to-bl from-green-50 via-purple-50 to-green-50   space-y-1">
           <h2 className="text-2xl font-bold mb-4 px-2 text-green-400">Menu</h2>

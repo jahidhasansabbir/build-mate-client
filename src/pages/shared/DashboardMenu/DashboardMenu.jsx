@@ -24,7 +24,7 @@ import { useQuery } from "@tanstack/react-query";
 const DashboardMenu = () => {
   const {user, isLoadingUser}=useAuth();
   const axiosSecure = useAxiosSecure();
-  const { data: role, isLoading:isRoleLoading } = useQuery({
+  const { data: role, } = useQuery({
       enabled: !isLoadingUser,
       queryKey: ['role', user?.email],
       queryFn: async () => {
@@ -32,7 +32,6 @@ const DashboardMenu = () => {
         return res.data;
       },
     });
-  if (isRoleLoading) return "loading...";
   return (
     <ul className="space-y-1">
       <li>

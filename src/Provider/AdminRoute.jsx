@@ -3,6 +3,7 @@ import useAuth from '../hooks/useAuth';
 import { Navigate, useLocation } from 'react-router';
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import Loading from '../pages/shared/Loading/Loading';
 
 const AdminRoute = ({ children }) => {
       const {user, isLoadingUser}=useAuth();
@@ -19,7 +20,7 @@ const AdminRoute = ({ children }) => {
 
 
     if (isRoleLoading) {
-        return <span className="loading loading-spinner loading-xl"></span>
+        return <Loading></Loading>
     }
 
     if (role!=="admin") {

@@ -39,7 +39,11 @@ const UserProfile = ({ user, agreement }) => {
               <FiCalendar /> Agreement Accepted On
             </p>
             <p className="font-semibold text-lg text-black">
-              {agreement?.acceptedDate || "N/A"}
+              {new Date(agreement?.acceptedDate).toLocaleDateString("en-GB", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+})}
             </p>
           </div>
           <div>

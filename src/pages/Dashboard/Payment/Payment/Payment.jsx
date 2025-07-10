@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import Loading from "../../../shared/Loading/Loading";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
@@ -21,11 +22,7 @@ const Payment = () => {
   });
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center min-h-[60vh]">
-        <span className="text-green-600 text-xl font-medium">Loading payment info...</span>
-      </div>
-    );
+    return <Loading></Loading>
   }
 
   return (

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import Loading from "../../shared/Loading/Loading";
 
 const PaymentHistory = () => {
   const axiosSecure = useAxiosSecure();
@@ -17,7 +18,7 @@ const PaymentHistory = () => {
   });
   if (isLoading) {
     return (
-      "loading..."
+      <Loading></Loading>
     );
   }
 

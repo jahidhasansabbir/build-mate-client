@@ -5,6 +5,7 @@ import UserProfile from '../UserProfile/UserProfile';
 import { useQuery } from '@tanstack/react-query';
 import MemberProfile from "../MemberProfile/MemberProfile"
 import AdminProfile from '../AdminProfile/AdminProfile';
+import Loading from '../../../shared/Loading/Loading';
 const MyProfile = () => {
     const {user,isLoadingUser}=useAuth()
     const axiosSecure = useAxiosSecure();
@@ -17,7 +18,7 @@ const MyProfile = () => {
         }
     })
     const role = agreement?.user?.role;
-    if(isLoading)return "loading..."
+    if(isLoading)return <Loading></Loading>
     return (
         <div>
             {

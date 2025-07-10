@@ -2,6 +2,7 @@ import React from 'react';
 import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../hooks/useAuth';
+import Loading from '../../../shared/Loading/Loading';
 
 const AdminProfile = ({ agreement }) => {
   const axiosSecure = useAxiosSecure();
@@ -26,7 +27,7 @@ const AdminProfile = ({ agreement }) => {
   const unavailablePercent = (100 - availablePercent).toFixed(1);
 
   if (isLoading) {
-    return "loading...";
+    return <Loading></Loading>;
   }
 
   return (

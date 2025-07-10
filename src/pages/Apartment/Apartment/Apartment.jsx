@@ -4,6 +4,7 @@ import ApartmentCard from "../ApartmentCard/ApartmentCard";
 import useAxios from "../../../hooks/useAxios";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Loading from "../../shared/Loading/Loading";
 
 const Apartment = () => {
   const axiosFetch = useAxios();
@@ -41,7 +42,7 @@ const Apartment = () => {
   const rooms = data.rooms || [];
   const totalPages = data.totalPages || 1;
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loading></Loading>;
 
   const handleApplyFilter = () => {
     setAppliedMin(minRent);
@@ -50,7 +51,7 @@ const Apartment = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10">
+    <section className="max-w-[1600px] w-11/12 mx-auto py-10">
       <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-500 mb-10 text-center tracking-tight">
         Available Apartments
       </h2>

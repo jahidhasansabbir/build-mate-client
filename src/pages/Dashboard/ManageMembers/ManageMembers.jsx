@@ -1,6 +1,7 @@
 import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Loading from "../../shared/Loading/Loading";
 
 const ManageMembers = () => {
   const axiosSecure = useAxiosSecure();
@@ -21,7 +22,7 @@ const ManageMembers = () => {
       .catch((err) => console.log(err));
   };
 
-  if (isLoading) return "loading...";
+  if (isLoading) return <Loading></Loading>;
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10">

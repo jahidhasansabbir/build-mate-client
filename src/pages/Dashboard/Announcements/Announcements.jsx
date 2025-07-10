@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Loading from "../../shared/Loading/Loading";
 
 const Announcements = () => {
   const axiosSecure = useAxiosSecure();
@@ -12,7 +13,7 @@ const Announcements = () => {
     },
   });
 
-  if (isLoading) return "loading...";
+  if (isLoading) return <Loading></Loading>;
 
   return (
     <section className="max-w-5xl mx-auto px-4 sm:px-6 md:px-10 py-10">

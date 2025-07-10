@@ -3,6 +3,7 @@ import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import AgreementRequestsCard from "./AgreementRequestsCard";
+import Loading from "../../shared/Loading/Loading";
 
 const AgreementRequests = () => {
   const axiosSecure = useAxiosSecure();
@@ -18,7 +19,7 @@ const AgreementRequests = () => {
     (request) => request.status === "pending"
   );
 
-  if (isLoading) return "loading...";
+  if (isLoading) return <Loading></Loading>;
 
   return (
     <section className="px-4 md:px-10 py-10 max-w-7xl mx-auto">

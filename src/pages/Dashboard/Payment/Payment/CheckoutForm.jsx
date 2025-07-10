@@ -22,6 +22,14 @@ const CheckoutForm = ({ agreement, month }) => {
         timer: 1500,
       });
     };
+    const errorAlert = (msg) => {
+        Swal.fire({
+          title: "Error!",
+          text: `${msg}`,
+          icon: "error",
+          showConfirmButton: true,
+        });
+      };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
@@ -89,12 +97,15 @@ const CheckoutForm = ({ agreement, month }) => {
     const code = e.target.coupon.value;
     axiosSecure.get(`/coupon/${code}`)
     .then(res=>{
-        console.log(res.data);
+        if(!res.data.message){
         const discount = res.data.discount;
         const updatedAmount = rentAmount - (rentAmount * (discount/100))
         setRentAmount(updatedAmount)
         setIsApplied(true)
         setCoupon(code);
+        }else{
+          errorAlert(res.data.message)
+        }
     })
     .catch(err=>{
         console.log(err);

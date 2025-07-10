@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useNavigate } from "react-router";
+import Loading from "../../shared/Loading/Loading";
 
 const MakePayment = () => {
   const { user } = useAuth();
@@ -16,7 +17,7 @@ const MakePayment = () => {
       return res.data;
     },
   });
-  if (isLoading) return "Loading...";
+  if (isLoading) return <Loading></Loading>;
   const { blockName, apartmentNo, floorNo, rent } = agreement;
 
   const handlePayment = e=>{
