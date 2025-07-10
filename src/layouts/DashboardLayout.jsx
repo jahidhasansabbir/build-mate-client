@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Outlet } from "react-router";
 import {
   FiMenu,
@@ -9,8 +9,15 @@ import {
   FiList,
 } from "react-icons/fi";
 import DashboardMenu from "../pages/shared/DashboardMenu/DashboardMenu";
+import Aos from "aos";
 
 const DashboardLayout = () => {
+   useEffect(() => {
+      Aos.init({
+        duration: 1000, 
+        once: false,     
+      });
+    }, []);
   return (
     <div className="drawer lg:drawer-open">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />

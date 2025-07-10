@@ -30,7 +30,7 @@ const MakePayment = () => {
   }
 
   return (
-    <section className="max-w-3xl mx-auto px-4 sm:px-6 md:px-10 py-10">
+    <section data-aos="fade-up" className="max-w-3xl mx-auto px-4 sm:px-6 md:px-10 py-10">
       <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-lg p-6 sm:p-10 text-black">
         <h2 className="text-2xl sm:text-3xl font-bold text-green-500 mb-6 text-center drop-shadow-lg">
           Make Payment

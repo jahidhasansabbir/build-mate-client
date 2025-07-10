@@ -20,7 +20,7 @@ const MyProfile = () => {
     const role = agreement?.user?.role;
     if(isLoading)return <Loading></Loading>
     return (
-        <div>
+        <div data-aos="fade-up">
             {
                 role==='member' && <MemberProfile user={user} agreement={agreement}></MemberProfile>  
             }

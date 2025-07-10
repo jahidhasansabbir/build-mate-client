@@ -6,6 +6,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Loading from "../../shared/Loading/Loading";
 
+
 const ManageCoupons = () => {
   const axiosSecure = useAxiosSecure();
 
@@ -19,7 +20,6 @@ const ManageCoupons = () => {
 
   if (isLoading) return <Loading></Loading>;
 
-  // ✅ Add Coupon Handler (unchanged)
   const handleAddCoupon = async () => {
     const { value: formValues } = await Swal.fire({
       title: `
@@ -104,7 +104,6 @@ const ManageCoupons = () => {
     }
   };
 
-  // ✅ Edit Coupon
   const handleEdit = async (coupon) => {
     const { value: formValues } = await Swal.fire({
       title: `
@@ -156,9 +155,10 @@ const ManageCoupons = () => {
       }
     });
   };
+ 
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10">
+    <section data-aos="fade-up" className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10">
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-green-500">
           Manage Coupons
