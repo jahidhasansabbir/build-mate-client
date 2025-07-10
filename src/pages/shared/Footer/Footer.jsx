@@ -30,8 +30,7 @@ const Footer = () => {
         <h6 className="footer-title">Links</h6>
         
         <NavLink to='/' className="link link-hover">Home</NavLink>
-        <NavLink to='/support' className="link link-hover">Support</NavLink>
-        <NavLink to='/about-us' className="link link-hover">About Us</NavLink>
+        <NavLink to='/apartment' className="link link-hover">Apartments</NavLink>
       </nav>
 
       <nav>
