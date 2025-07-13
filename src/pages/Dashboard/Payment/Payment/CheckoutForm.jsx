@@ -107,8 +107,7 @@ const CheckoutForm = ({ agreement, month }) => {
           errorAlert(res.data.message)
         }
     })
-    .catch(err=>{
-        console.log(err);
+    .catch(()=>{
     })
   };
 

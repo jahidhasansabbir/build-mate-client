@@ -9,7 +9,7 @@ const AdminRoute = ({ children }) => {
       const {user, isLoadingUser}=useAuth();
   const axiosSecure = useAxiosSecure();
   const { data: role, isLoading:isRoleLoading } = useQuery({
-      enabled: !isLoadingUser,
+      enabled: !isLoadingUser &&!!user?.email,
       queryKey: ['role', user?.email],
       queryFn: async () => {
         const res = await axiosSecure(`/role/${user?.email}`);

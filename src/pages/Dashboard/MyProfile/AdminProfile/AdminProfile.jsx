@@ -6,16 +6,15 @@ import Loading from '../../../shared/Loading/Loading';
 
 const AdminProfile = ({ agreement }) => {
   const axiosSecure = useAxiosSecure();
-  const {user}=useAuth();
+  const {user, isUserLoading}=useAuth();
   const { data: adminStats, isLoading } = useQuery({
-    enabled: !!user?.accessToken,
+    enabled: !isUserLoading && !!user?.accessToken,
     queryKey: ["admin-profile"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/admin-profile`);
       return res.data;
     }
   });
-
   const apartment = adminStats?.apartments;
   const userData = adminStats?.user;
   const totalRooms = apartment?.length;

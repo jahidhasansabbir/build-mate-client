@@ -29,9 +29,10 @@ const Avatar = ({ user, logOut }) => {
           className="btn text-base rounded-lg bg-green-600 text-white hover:text-green-600 hover:bg-white hover:border-green-600"
           onClick={() => {
             logOut()
-              .then(() => {})
-              .catch((err) => {
-                console.log(err);
+              .then(() => {
+                 localStorage.clear();
+              })
+              .catch(() => {
               });
           }}
         >

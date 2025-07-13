@@ -22,7 +22,7 @@ const ManageMembers = () => {
     axiosSecure
       .patch(`/users/${id}`)
       .then(() => refetch())
-      .catch((err) => console.log(err));
+      .catch(() =>{});
   };
 
   if (isLoading) return <Loading></Loading>;

@@ -35,6 +35,7 @@ const Login = () => {
     const password = e.target.password.value;
     logInWithEmail(email, password)
       .then((data) => {
+        
         sweetAlert();
         const userData = {
           name: data?.user?.displayName,

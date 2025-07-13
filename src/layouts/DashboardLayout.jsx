@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { NavLink, Outlet } from "react-router";
-import Logo from "../pages/shared/Navbar/Logo"
+import Logo from "../pages/shared/Navbar/Logo";
 import {
   FiMenu,
   FiHome,
@@ -15,14 +15,22 @@ import useAuth from "../hooks/useAuth";
 import Loading from "../pages/shared/Loading/Loading";
 
 const DashboardLayout = () => {
-  const {isLoadingUser}=useAuth();
-   useEffect(() => {
-      Aos.init({
-        duration: 1000, 
-        once: false,     
-      });
-    }, []);
-    if(isLoadingUser)return<Loading></Loading>
+  const { isLoadingUser } = useAuth();
+
+  useEffect(() => {
+    const hasReloaded = localStorage.getItem("dashboard-reloaded");
+
+    if (!hasReloaded) {
+      localStorage.setItem("dashboard-reloaded", "true");
+      window.location.reload();
+    }
+
+    Aos.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
+  if (isLoadingUser) return <Loading></Loading>;
   return (
     <div className="drawer lg:drawer-open">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
@@ -32,7 +40,7 @@ const DashboardLayout = () => {
         {/* ✅ Top navbar (Mobile) */}
         <div className="w-full shadow-sm sticky top-0 z-20 text-[#000000] lg:hidden bg-base-100">
           <div className="navbar justify-between  p-0 w-11/12 mx-auto">
-            <Logo/>
+            <Logo />
             <div className="flex-none">
               <label
                 htmlFor="dashboard-drawer"
@@ -54,7 +62,9 @@ const DashboardLayout = () => {
       <div className="drawer-side border-r border-gray-100 z-20">
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
         <aside className="menu p-4 w-64 min-h-full bg-gradient-to-bl from-green-50 via-purple-50 to-green-50   space-y-1">
-          <div className="px-3"><Logo></Logo></div>
+          <div className="px-3">
+            <Logo></Logo>
+          </div>
 
           {/* Dashboard menu here  */}
           <DashboardMenu />

@@ -83,7 +83,7 @@ const ManageCoupons = () => {
       axiosSecure
         .post("/coupons", formValues)
         .then(() => refetch())
-        .catch((err) => console.log(err));
+        .catch(() =>{} );
 
       Swal.fire({
         title: '<p class="text-4xl font-semibold text-green-600">Success!</p>',

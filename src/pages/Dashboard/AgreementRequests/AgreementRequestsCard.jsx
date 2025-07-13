@@ -22,8 +22,7 @@ const AgreementRequestsCard = ({ req, refetch }) => {
       .then(() => {
         refetch();
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {;
       });
   };
 
@@ -33,8 +32,7 @@ const AgreementRequestsCard = ({ req, refetch }) => {
       .then(() => {
         refetch();
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {;
       });
   };
 

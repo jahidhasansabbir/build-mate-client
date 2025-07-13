@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
     logInWithEmail,
     logOut
   };
-  return <AuthContext value={userInfo}>{children}</AuthContext>;
+  return <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>;
 };
 
 export default AuthProvider;
