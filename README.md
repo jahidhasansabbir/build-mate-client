@@ -141,40 +141,40 @@ This project uses the following core libraries and tools:
 
 ---
 
-<!-- ## 📦 Installation & Setup Guide
-
-### 1. Clone the Repositories
-
-```bash
-# Frontend
-https://github.com/your-username/buildmate-client
-
-# Backend
-https://github.com/your-username/buildmate-server
-```
+## 📦 Installation & Setup Guide
 
 ### 2. Install Frontend Dependencies
+```bash
+# Clone the frontend
+git clone https://github.com/jahidhasansabbir/build-mate-client
+```
 
 ```bash
-cd buildmate-client
+cd build-mate-client
 npm install
 ```
 
 ### 3. Setup Frontend `.env`
 
 ```env
-VITE_apiKey=your_api_key
-VITE_authDomain=your_auth_domain
-VITE_projectId=your_project_id
-VITE_storageBucket=your_storage_bucket
-VITE_messagingSenderId=your_messaging_sender_id
-VITE_appId=your_app_id
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+VITE_STRIPE_PUBLISHABLE_KEY = your_stripe_publishable_key
+#after install and run the server
+VITE_SERVER = http://localhost:3000/
 ```
 
 ### 4. Install Backend Dependencies
-
 ```bash
-cd buildmate-server
+# Clone the backend
+git clone https://github.com/jahidhasansabbir/build-mate-client
+```
+```bash
+cd build-mate-server
 npm install
 ```
 
@@ -182,21 +182,30 @@ npm install
 
 ```env
 URI=your_mongodb_uri
-SECRET_KEY=your_jwt_secret
 STRIPE_SECRET_KEY=your_stripe_secret
 ```
 
 ### 6. Run Locally
-
+Run the backend server:
 ```bash
 # Start backend
 nodemon index.js
+```
+Your backend should now be running, typically at:
+[http://localhost:3000](http://localhost:3000)
+> **Important:** Make sure nodemon is install globally in your machine once.
 
+Start the development server:
+```bash
 # Start frontend
 npm run dev
 ```
+Then open your browser and visit:
 
---- -->
+[http://localhost:5173](http://localhost:5173)  
+(or the port provided in your terminal)
+
+---
 
 ## 🔚 Final Notes
 
@@ -205,5 +214,6 @@ npm run dev
 * All data validated before submission
 
 ---
+
 
 > 🎉 Thank you for visiting 
