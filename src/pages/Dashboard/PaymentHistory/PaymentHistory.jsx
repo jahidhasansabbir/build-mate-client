@@ -24,7 +24,7 @@ const PaymentHistory = () => {
 
   return (
     <section data-aos="fade-up" className="max-w-4xl mx-auto py-10">
-      <h2 className="text-3xl font-bold text-green-500 text-center mb-8">
+      <h2 className="text-3xl font-bold text-indigo-500 text-center mb-8">
         Payment History
       </h2>
 
@@ -33,7 +33,7 @@ const PaymentHistory = () => {
       ) : (
         <div className="overflow-x-auto rounded-xl shadow border border-gray-200">
           <table className="min-w-full table-auto">
-            <thead className="bg-green-100 text-green-900 text-left text-sm uppercase font-semibold">
+            <thead className="bg-indigo-100 text-indigo-900 text-left text-sm uppercase font-semibold">
               <tr>
                 <th className="px-6 py-4">#</th>
                 <th className="px-6 py-4">Amount</th>
@@ -54,7 +54,7 @@ const PaymentHistory = () => {
                   <td className="px-6 py-4">
                     <span className={`inline-block px-3 py-1 text-xs rounded-full font-semibold ${
                       payment.status === "success"
-                        ? "bg-green-100 text-green-700"
+                        ? "bg-indigo-100 text-indigo-700"
                         : "bg-red-100 text-red-600"
                     }`}>
                       {payment.status}

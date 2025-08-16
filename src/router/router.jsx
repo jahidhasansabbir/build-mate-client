@@ -19,6 +19,7 @@ import AdminRoute from "../Provider/AdminRoute";
 import Payment from "../pages/Dashboard/Payment/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import ContactUs from "../pages/contact-us/ContactUs";
+import TermsAndConditions from "../pages/terms-and-conditions/TermsAndConditions";
 
 
 export const router = createBrowserRouter([
@@ -45,7 +46,11 @@ export const router = createBrowserRouter([
             {
                 path:'contact-us',
                 Component: ContactUs
-            }
+            },
+             {
+                path:'announcements',
+                element: <PrivateRoute><Announcements></Announcements></PrivateRoute>
+            },
         ]
     },
     {
@@ -56,10 +61,7 @@ export const router = createBrowserRouter([
                 index:true,
                 element:<PrivateRoute><MyProfile></MyProfile></PrivateRoute>
             },
-            {
-                path:'announcements',
-                element: <PrivateRoute><Announcements></Announcements></PrivateRoute>
-            },
+           
             {
                 path: 'make-payment',
                 element:<MemberRoute><MakePayment></MakePayment></MemberRoute>
@@ -93,5 +95,13 @@ export const router = createBrowserRouter([
     {
         path:'forbidden',
         Component: Forbidden
-    }
+    },
+    {
+        path:'terms-and-conditions',
+        Component: TermsAndConditions
+    },
+    // {
+    //     path: '*',
+    //     Component: Erro
+    // }
 ])

@@ -41,8 +41,8 @@ const DashboardMenu = () => {
           className={({ isActive }) =>
             `flex items-center gap-3 rounded-lg px-3 py-2 ${
               isActive
-                ? "bg-green-300"
-                : "text-green-950 hover:bg-green-200 transition"
+                ? "bg-indigo-300"
+                : "text-indigo-950 hover:bg-indigo-200 transition"
             }`
           }
         >
@@ -60,8 +60,8 @@ const DashboardMenu = () => {
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 ${
                   isActive
-                    ? "bg-green-300"
-                    : "text-green-950 hover:bg-green-200 transition"
+                    ? "bg-indigo-300"
+                    : "text-indigo-950 hover:bg-indigo-200 transition"
                 }`
               }
             >
@@ -75,8 +75,8 @@ const DashboardMenu = () => {
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 ${
                   isActive
-                    ? "bg-green-300"
-                    : "text-green-950 hover:bg-green-200 transition"
+                    ? "bg-indigo-300"
+                    : "text-indigo-950 hover:bg-indigo-200 transition"
                 }`
               }
             >
@@ -86,22 +86,6 @@ const DashboardMenu = () => {
         </>
       )}
 
-      {role !== "admin" && (
-        <li>
-          <NavLink
-            to="/dashboard/announcements"
-            className={({ isActive }) =>
-              `flex items-center gap-3 rounded-lg px-3 py-2 ${
-                isActive
-                  ? "bg-green-300"
-                  : "text-green-950 hover:bg-green-200 transition"
-              }`
-            }
-          >
-            <MdAnnouncement className="text-lg" /> Announcements
-          </NavLink>
-        </li>
-      )}
 
       {role === "admin" && (
         <>
@@ -111,8 +95,8 @@ const DashboardMenu = () => {
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 ${
                   isActive
-                    ? "bg-green-300"
-                    : "text-green-950 hover:bg-green-200 transition"
+                    ? "bg-indigo-300"
+                    : "text-indigo-950 hover:bg-indigo-200 transition"
                 }`
               }
             >
@@ -126,8 +110,8 @@ const DashboardMenu = () => {
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 ${
                   isActive
-                    ? "bg-green-300"
-                    : "text-green-950 hover:bg-green-200 transition"
+                    ? "bg-indigo-300"
+                    : "text-indigo-950 hover:bg-indigo-200 transition"
                 }`
               }
             >
@@ -141,8 +125,8 @@ const DashboardMenu = () => {
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 ${
                   isActive
-                    ? "bg-green-300"
-                    : "text-green-950 hover:bg-green-200 transition"
+                    ? "bg-indigo-300"
+                    : "text-indigo-950 hover:bg-indigo-200 transition"
                 }`
               }
             >
@@ -156,8 +140,8 @@ const DashboardMenu = () => {
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-2 ${
                   isActive
-                    ? "bg-green-300"
-                    : "text-green-950 hover:bg-green-200 transition"
+                    ? "bg-indigo-300"
+                    : "text-indigo-950 hover:bg-indigo-200 transition"
                 }`
               }
             >

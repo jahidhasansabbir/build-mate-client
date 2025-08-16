@@ -34,13 +34,13 @@ const CouponRow = ({ coupon, refetch }) => {
       key={coupon._id}
       className="border-b border-gray-200 hover:bg-white/20 transition"
     >
-      <td className="px-6 py-4 font-medium text-green-700">{coupon.code}</td>
+      <td className="px-6 py-4 font-medium text-indigo-700">{coupon.code}</td>
       <td className="px-6 py-4">{coupon.discount}%</td>
       <td className="px-6 py-4">{coupon.description}</td>
       <td className="px-6 py-4 flex justify-center items-center gap-4">
         <button
           onClick={() => handleEdit(coupon)}
-          className="text-green-600 btn hover:text-green-800"
+          className="text-indigo-600 btn hover:text-indigo-800"
           title="Edit"
         >
           {isAvailable ? "Available" : "Unavailable"}

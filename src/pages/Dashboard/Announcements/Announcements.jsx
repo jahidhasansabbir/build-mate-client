@@ -17,7 +17,7 @@ const Announcements = () => {
 
   return (
     <section data-aos="fade-up" className="max-w-4xl mx-auto py-10">
-      <h2 className="text-3xl font-bold text-green-500 mb-8 text-center">
+      <h2 className="text-3xl font-bold text-indigo-500 mb-8 text-center">
         Announcements
       </h2>
 

@@ -24,7 +24,7 @@ const UserProfile = ({ user, agreement }) => {
               {user?.displayName || "Unknown User"}
             </h2>
             <p className="text-gray-600 flex items-center gap-2 mt-1">
-              <FiMail className="text-green-400" />
+              <FiMail className="text-indigo-400" />
               {user?.email || "No email provided"}
             </p>
           </div>

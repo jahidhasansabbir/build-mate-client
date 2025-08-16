@@ -47,10 +47,10 @@ const AgreementRequestsCard = ({ req, refetch }) => {
       className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-black flex flex-col justify-between"
     >
       <div className="flex items-center gap-4 mb-5">
-        <FaUserCircle className="text-5xl text-green-500 drop-shadow-md" />
+        <FaUserCircle className="text-5xl text-indigo-500 drop-shadow-md" />
         <div>
-          <h3 className="text-xl font-semibold text-green-700">{req.userName}</h3>
-          <p className="text-sm text-green-400 flex items-center gap-1">
+          <h3 className="text-xl font-semibold text-indigo-700">{req.userName}</h3>
+          <p className="text-sm text-indigo-400 flex items-center gap-1">
             <MdOutlineMail className="text-base" /> {req.userEmail}
           </p>
         </div>
@@ -58,12 +58,12 @@ const AgreementRequestsCard = ({ req, refetch }) => {
 
       <div className="text-sm space-y-3 text-black">
         <p className="flex items-center gap-2">
-          <FaBuilding className="text-green-600" />
+          <FaBuilding className="text-indigo-600" />
           Floor: <span className="font-semibold">{req.floorNo}</span> | Block:{" "}
           <span className="font-semibold">{req.blockName}</span>
         </p>
         <p className="flex items-center gap-2">
-          <MdMeetingRoom className="text-green-600" />
+          <MdMeetingRoom className="text-indigo-600" />
           Room: <span className="font-semibold">{req.apartmentNo}</span>
         </p>
         <p className="flex items-center gap-2">
@@ -79,7 +79,7 @@ const AgreementRequestsCard = ({ req, refetch }) => {
       <div className="flex justify-between gap-3 mt-8">
         <button
           onClick={() => handleAccept(req._id)}
-          className="flex-1 bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 font-semibold transition shadow-md shadow-green-500/50"
+          className="flex-1 bg-indigo-500 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 font-semibold transition shadow-md shadow-indigo-500/50"
         >
           <FaCheckCircle className="text-lg" /> Accept
         </button>

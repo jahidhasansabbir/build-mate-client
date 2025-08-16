@@ -23,26 +23,26 @@ const ManageCoupons = () => {
   const handleAddCoupon = async () => {
     const { value: formValues } = await Swal.fire({
       title: `
-      <p class="text-4xl p-0 m-0 font-semibold text-green-600">
+      <p class="text-4xl p-0 m-0 font-semibold text-indigo-600">
         Add New Coupon
       </p>`,
       html: `
       <div class="space-y-4 p-0 m-0 text-left overflow-hidden">
         <input
           id="code"
-          class="swal2-input !w-full !bg-white/10 backdrop-blur-lg !text-black !border !border-gray-200  !rounded-lg !px-4 !py-2 !text-sm placeholder:!text-gray-600 focus:outline-none focus:ring-2 focus:ring-green-600"
+          class="swal2-input !w-full !bg-white/10 backdrop-blur-lg !text-black !border !border-gray-200  !rounded-lg !px-4 !py-2 !text-sm placeholder:!text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-600"
           placeholder="Coupon Code"
         />
         <input
           id="discount"
           type="number"
-          class="swal2-input !w-full !bg-white/10 backdrop-blur-lg !text-black !border !border-gray-200 !rounded-lg !px-4 !py-2 !text-sm placeholder:!text-gray-600 focus:outline-none focus:ring-2 focus:ring-green-600"
+          class="swal2-input !w-full !bg-white/10 backdrop-blur-lg !text-black !border !border-gray-200 !rounded-lg !px-4 !py-2 !text-sm placeholder:!text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-600"
           placeholder="Discount Percentage (e.g. 20)"
         />
         <textarea
           id="description"
           rows="3"
-          class="swal2-textarea !w-full !bg-white/10 backdrop-blur-lg !text-black !border !border-gray-200 !rounded-lg !px-4 !py-2 !text-sm placeholder:!text-gray-600 focus:outline-none focus:ring-2 focus:ring-green-600"
+          class="swal2-textarea !w-full !bg-white/10 backdrop-blur-lg !text-black !border !border-gray-200 !rounded-lg !px-4 !py-2 !text-sm placeholder:!text-gray-600 focus:outline-none focus:ring-2 focus:ring-indigo-600"
           placeholder="Write the description..."
         ></textarea>
       </div>
@@ -52,7 +52,7 @@ const ManageCoupons = () => {
         popup:
           "backdrop-blur-xl bg-white/10 text-black rounded-xl border border-gray-200",
         confirmButton:
-          "bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition duration-200",
+          "bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition duration-200",
         cancelButton:
           "bg-gray-200 ml-4 hover:bg-gray-300 text-black px-5 py-2 rounded-lg text-sm font-medium transition duration-200",
       },
@@ -86,7 +86,7 @@ const ManageCoupons = () => {
         .catch(() =>{} );
 
       Swal.fire({
-        title: '<p class="text-4xl font-semibold text-green-600">Success!</p>',
+        title: '<p class="text-4xl font-semibold text-indigo-600">Success!</p>',
         html: '<p class="text-black">Coupon added successfully!</p>',
         icon: "success",
         background: "rgba(255 255 255 / 1)",
@@ -94,8 +94,8 @@ const ManageCoupons = () => {
           popup:
             "backdrop-blur-xl bg-white/10 text-black rounded-xl border border-gray-200",
           confirmButton:
-            "bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition duration-200",
-          title: "text-green-600",
+            "bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition duration-200",
+          title: "text-indigo-600",
           content: "text-black text-sm",
         },
         buttonsStyling: false,
@@ -111,12 +111,12 @@ const ManageCoupons = () => {
   return (
     <section data-aos="fade-up" className="max-w-4xl mx-auto  py-10">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-green-500">
+        <h2 className="text-2xl sm:text-3xl font-bold text-indigo-500">
           Manage Coupons
         </h2>
         <button
           onClick={handleAddCoupon}
-          className="flex items-center gap-2 bg-green-500 hover:bg-green-700 btn text-white shadow transition"
+          className="flex items-center gap-2 bg-indigo-500 hover:bg-indigo-700 btn text-white shadow transition"
         >
           <MdAddCircleOutline className="text-lg" /> Add Coupon
         </button>
@@ -124,7 +124,7 @@ const ManageCoupons = () => {
 
       <div className="overflow-x-auto rounded-2xl bg-white/10 backdrop-blur-lg border border-gray-200 shadow-md">
         <table className="min-w-full text-sm text-left text-black">
-          <thead className="bg-green-500/10 border-b border-gray-200 text-gray-700 text-xs uppercase">
+          <thead className="bg-indigo-500/10 border-b border-gray-200 text-gray-700 text-xs uppercase">
             <tr>
               <th className="px-6 py-4 font-semibold">Coupon Code</th>
               <th className="px-6 py-4 font-semibold">Discount (%)</th>

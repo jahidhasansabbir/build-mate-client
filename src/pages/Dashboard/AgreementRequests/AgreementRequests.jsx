@@ -23,7 +23,7 @@ const AgreementRequests = () => {
 
   return (
     <section data-aos="fade-up" className=" py-10 max-w-7xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold text-green-500 mb-10 text-center drop-shadow-md">
+      <h2 className="text-3xl md:text-4xl font-bold text-indigo-500 mb-10 text-center drop-shadow-md">
         Agreement Requests
       </h2>
 

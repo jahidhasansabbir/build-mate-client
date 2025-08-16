@@ -11,6 +11,7 @@ import {
   FaHome,
   FaCreditCard,
   FaBullhorn,
+  FaGithub,
 } from "react-icons/fa";
 import Swal from "sweetalert2";
 
@@ -27,28 +28,22 @@ const ContactUs = () => {
       icon: "success",
       title: "Message Sent!",
       text: "✅ We’ll get back to you soon.",
-      confirmButtonColor: "#16a34a", // Tailwind green-600
+      confirmButtonColor: "#16a34a", // Tailwind indigo-600
     });
   };
 
   const faqs = [
     {
-      icon: <FaHome className="text-green-600" />,
+      icon: <FaHome className="text-indigo-600" />,
       question: "How can I book an apartment?",
       answer:
         "You need to log in and go to the Apartments page. From there, you can request an agreement for your preferred apartment.",
     },
     {
-      icon: <FaCreditCard className="text-green-600" />,
+      icon: <FaCreditCard className="text-indigo-600" />,
       question: "What payment methods do you accept?",
       answer:
         "We currently accept Stripe payments with credit/debit cards. Coupon discounts can also be applied during checkout.",
-    },
-    {
-      icon: <FaBullhorn className="text-green-600" />,
-      question: "Where can I see announcements?",
-      answer:
-        "Announcements are available in your Dashboard. Admins post updates there so all members stay informed.",
     },
   ];
 
@@ -56,7 +51,7 @@ const ContactUs = () => {
     <div className="min-h-screen w-11/12 mx-auto flex flex-col items-center py-12 max-w-[1600px]">
       {/* Header */}
       <div className=" text-center mb-12">
-        <h1 className="text-4xl font-bold text-green-600 mb-4">Contact Us</h1>
+        <h1 className="text-4xl font-bold text-indigo-600 mb-4">Contact Us</h1>
         <p className="text-gray-600">
           Have questions or need help? Get in touch with us — we’d love to hear
           from you.
@@ -72,28 +67,28 @@ const ContactUs = () => {
           </h2>
           <ul className="space-y-4 text-gray-600">
             <li className="flex items-center gap-3">
-              <FaMapMarkerAlt className="text-green-600 text-xl" />
+              <FaMapMarkerAlt className="text-indigo-600 text-xl" />
               <span>Dhaka, Bangladesh</span>
             </li>
             <li className="flex items-center gap-3">
-              <FaPhoneAlt className="text-green-600 text-xl" />
+              <FaPhoneAlt className="text-indigo-600 text-xl" />
               <span>+880 1234-567890</span>
             </li>
             <li className="flex items-center gap-3">
-              <FaEnvelope className="text-green-600 text-xl" />
+              <FaEnvelope className="text-indigo-600 text-xl" />
               <span>support@buildmate.com</span>
             </li>
           </ul>
 
           {/* Social Links */}
           <div className="mt-6 flex space-x-4 text-xl">
-            <a href="#" className="text-green-600 hover:text-green-800 transition">
-              <FaFacebook />
+            <a href="https://github.com/jahidhasansabbir/" target="_blank" className="text-indigo-600 hover:text-indigo-800 transition">
+              <FaGithub />
             </a>
-            <a href="#" className="text-green-600 hover:text-green-800 transition">
+            <a href="https://www.linkedin.com/in/jahid-hasan-sabbir/" target="_blank" className="text-indigo-600 hover:text-indigo-800 transition">
               <FaLinkedin />
             </a>
-            <a href="#" className="text-green-600 hover:text-green-800 transition">
+            <a href="https://x.com/jahid_sabbir1" target="_blank" className="text-indigo-600 hover:text-indigo-800 transition">
               <FaTwitter />
             </a>
           </div>
@@ -108,29 +103,29 @@ const ContactUs = () => {
             <input
               type="text"
               placeholder="Your Name"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
               required
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
               required
             />
             <input
               type="text"
               placeholder="Subject"
-              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <textarea
               rows="4"
               placeholder="Your Message"
-              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
               required
             ></textarea>
             <button
               type="submit"
-              className="w-full bg-green-600 text-white py-3 rounded-xl hover:bg-green-700 transition font-semibold"
+              className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition font-semibold"
             >
               Send Message
             </button>
@@ -140,7 +135,7 @@ const ContactUs = () => {
 
       {/* FAQ Section */}
       <div className="mt-16 w-full">
-        <h2 className="text-3xl font-bold text-center text-green-600 mb-8">
+        <h2 className="text-3xl font-bold text-center text-indigo-600 mb-8">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
@@ -158,9 +153,9 @@ const ContactUs = () => {
                   </h3>
                 </div>
                 {openFAQ === index ? (
-                  <FaChevronUp className="text-green-600" />
+                  <FaChevronUp className="text-indigo-600" />
                 ) : (
-                  <FaChevronDown className="text-green-600" />
+                  <FaChevronDown className="text-indigo-600" />
                 )}
               </div>
               {openFAQ === index && (

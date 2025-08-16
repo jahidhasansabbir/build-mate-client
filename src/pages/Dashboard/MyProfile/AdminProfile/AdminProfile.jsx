@@ -49,12 +49,12 @@ const AdminProfile = ({ agreement }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
             <p className="text-lg text-black">Total Rooms</p>
-            <h3 className="text-2xl font-bold text-green-700">{totalRooms}</h3>
+            <h3 className="text-2xl font-bold text-indigo-700">{totalRooms}</h3>
           </div>
 
           <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
             <p className="text-lg text-black">Available Rooms (%)</p>
-            <h3 className="text-2xl font-bold text-green-600">{availablePercent}%</h3>
+            <h3 className="text-2xl font-bold text-indigo-600">{availablePercent}%</h3>
           </div>
 
           <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
@@ -64,12 +64,12 @@ const AdminProfile = ({ agreement }) => {
 
           <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
             <p className="text-lg text-black">Total Users</p>
-            <h3 className="text-2xl font-bold text-green-700">{users}</h3>
+            <h3 className="text-2xl font-bold text-indigo-700">{users}</h3>
           </div>
 
           <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
             <p className="text-lg text-black">Total Members</p>
-            <h3 className="text-2xl font-bold text-green-600">{members}</h3>
+            <h3 className="text-2xl font-bold text-indigo-600">{members}</h3>
           </div>
         </div>
       </div>

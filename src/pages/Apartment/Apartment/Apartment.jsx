@@ -52,7 +52,7 @@ const Apartment = () => {
 
   return (
     <section className="max-w-[1600px] w-11/12 mx-auto py-10">
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-500 mb-10 text-center tracking-tight">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-500 mb-10 text-center tracking-tight">
         Available Apartments
       </h2>
 
@@ -61,7 +61,7 @@ const Apartment = () => {
         <input
           type="number"
           placeholder="Min Rent"
-          className="w-full sm:w-48 px-4 py-2 rounded-xl shadow-sm bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200"
+          className="w-full sm:w-48 px-4 py-2 rounded-xl shadow-sm bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
           value={minRent}
           onChange={(e) => setMinRent(e.target.value)}
           min={0}
@@ -69,14 +69,14 @@ const Apartment = () => {
         <input
           type="number"
           placeholder="Max Rent"
-          className="w-full sm:w-48 px-4 py-2 rounded-xl shadow-sm bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200"
+          className="w-full sm:w-48 px-4 py-2 rounded-xl shadow-sm bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
           value={maxRent}
           onChange={(e) => setMaxRent(e.target.value)}
           min={0}
         />
         <button
           onClick={handleApplyFilter}
-          className="bg-green-500 hover:bg-green-700 text-white px-6 py-2 rounded-xl"
+          className="bg-indigo-500 hover:bg-indigo-700 text-white px-6 py-2 rounded-xl"
         >
           Apply Filter
         </button>
@@ -101,7 +101,7 @@ const Apartment = () => {
           className={`px-4 py-2 rounded-lg ${
             page === 1
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-              : "bg-green-500 text-white hover:bg-green-600"
+              : "bg-indigo-500 text-white hover:bg-indigo-600"
           }`}
         >
           Prev
@@ -113,7 +113,7 @@ const Apartment = () => {
             onClick={() => setPage(i + 1)}
             className={`px-4 py-2 rounded-lg ${
               page === i + 1
-                ? "bg-green-500 text-white"
+                ? "bg-indigo-500 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
           >
@@ -127,7 +127,7 @@ const Apartment = () => {
           className={`px-4 py-2 rounded-lg ${
             page === totalPages
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-              : "bg-green-500 text-white hover:bg-green-600"
+              : "bg-indigo-500 text-white hover:bg-indigo-600"
           }`}
         >
           Next

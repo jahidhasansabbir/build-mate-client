@@ -7,21 +7,82 @@ import Logo from "./Logo";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
- 
+
   const links = (
     <>
       <li>
-        <NavLink to="/" className="text-black font-semibold">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `font-semibold hover:bg-white px-3 py-1 transition-colors duration-200 ${
+              isActive
+                ? "text-indigo-600 underline"
+                : "text-black hover:text-indigo-600"
+            }`
+          }
+        >
           Home
         </NavLink>
       </li>
+
       <li>
-        <NavLink to="/apartment" className="text-black font-semibold">
+        <NavLink
+          to="/apartment"
+          className={({ isActive }) =>
+            `font-semibold hover:bg-white px-3 py-1 transition-colors duration-200 ${
+              isActive
+                ? "text-indigo-600 underline"
+                : "text-black hover:text-indigo-600"
+            }`
+          }
+        >
           Apartment
         </NavLink>
       </li>
+
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/announcements"
+              className={({ isActive }) =>
+                `font-semibold hover:bg-white px-3 py-1 transition-colors duration-200 ${
+                  isActive
+                    ? "text-indigo-600 underline"
+                    : "text-black hover:text-indigo-600"
+                }`
+              }
+            >
+              Announcements
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                `font-semibold hover:bg-white px-3 py-1 transition-colors duration-200 ${
+                  isActive
+                    ? "text-indigo-600 underline"
+                    : "text-black hover:text-indigo-600"
+                }`
+              }
+            >
+              Dashboard
+            </NavLink>
+          </li>
+        </>
+      )}
       <li>
-        <NavLink to="/contact-us" className="text-black font-semibold">
+        <NavLink
+          to="/contact-us"
+          className={({ isActive }) =>
+            `font-semibold hover:bg-white px-3 py-1 transition-colors duration-200 ${
+              isActive
+                ? "text-indigo-600 underline"
+                : "text-black hover:text-indigo-600"
+            }`
+          }
+        >
           Contact Us
         </NavLink>
       </li>
@@ -29,7 +90,7 @@ const Navbar = () => {
   );
   return (
     <div className="shadow-sm sticky top-0 z-50 bg-white/70 backdrop-blur-md">
-      <div className="navbar px-0 text-green-900 max-w-[1600px] mx-auto w-11/12">
+      <div className="navbar px-0 text-indigo-900 max-w-[1600px] mx-auto w-11/12">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -70,7 +131,7 @@ const Navbar = () => {
           ) : (
             <NavLink
               to="/login"
-              className="btn font-bold bg-green-600 text-white hover:bg-green-700"
+              className="btn font-bold bg-indigo-600 text-white hover:bg-indigo-700"
             >
               Log in
             </NavLink>

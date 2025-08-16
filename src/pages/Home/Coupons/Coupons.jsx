@@ -31,7 +31,7 @@ export default function Coupons() {
         whileInView={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.5 }}
         viewport={{ once: false }}
-        className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-500 mb-8 text-center"
+        className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-indigo-500 mb-8 text-center"
       >
         Exclusive Member Coupons
       </motion.h2>
@@ -49,17 +49,17 @@ export default function Coupons() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
               viewport={{ once: false }}
-              className="bg-green-50 bg-opacity-50 backdrop-blur-sm border border-green-200 rounded-xl p-6 flex flex-col justify-between transition-transform duration-300"
+              className="bg-indigo-50 bg-opacity-50 backdrop-blur-sm border border-indigo-200 rounded-xl p-6 flex flex-col justify-between transition-transform duration-300"
             >
               <div>
-                <h3 className="text-xl sm:text-2xl font-semibold text-green-500 mb-2 tracking-wide">
+                <h3 className="text-xl sm:text-2xl font-semibold text-indigo-500 mb-2 tracking-wide">
                   {code}
                 </h3>
                 <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   {description}
                 </p>
               </div>
-              <p className="mt-4 text-xs sm:text-sm text-green-700 font-medium tracking-wide">
+              <p className="mt-4 text-xs sm:text-sm text-indigo-700 font-medium tracking-wide">
                 Get {discount}% discount
               </p>
             </motion.div>

@@ -81,7 +81,7 @@ const CheckoutForm = ({ agreement, month }) => {
         fontSize: "16px",
         color: "#1F2937", // Tailwind gray-800
         fontFamily: "inherit",
-        iconColor: "#22C55E", // Tailwind green-500
+        iconColor: "#22C55E", // Tailwind indigo-500
         "::placeholder": {
           color: "#9CA3AF", // Tailwind gray-400
         },
@@ -114,7 +114,7 @@ const CheckoutForm = ({ agreement, month }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4 border-2 border-gray-200">
       <form onSubmit={handleSubmit} className="space-y-4">
-        <h2 className="text-2xl font-semibold text-center text-green-600">
+        <h2 className="text-2xl font-semibold text-center text-indigo-600">
           Pay Your Rent
         </h2>
         <p className="text-gray-600 text-base text-center">
@@ -122,7 +122,7 @@ const CheckoutForm = ({ agreement, month }) => {
           <span className="font-bold text-gray-800">{rentAmount}</span>
         </p>
 
-        <div className="border border-gray-300 rounded-md p-4 focus-within:ring-2 focus-within:ring-green-500 transition">
+        <div className="border border-gray-300 rounded-md p-4 focus-within:ring-2 focus-within:ring-indigo-500 transition">
           <CardElement options={CARD_ELEMENT_OPTIONS} />
         </div>
 
@@ -135,7 +135,7 @@ const CheckoutForm = ({ agreement, month }) => {
         <button
           type="submit"
           disabled={!stripe || processing}
-          className={`w-full md:w-fit bg-green-500 btn hover:bg-green-600 text-white font-medium  rounded-md transition ${
+          className={`w-full md:w-fit bg-indigo-500 btn hover:bg-indigo-600 text-white font-medium  rounded-md transition ${
             processing ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
@@ -156,12 +156,12 @@ const CheckoutForm = ({ agreement, month }) => {
             name="coupon"
             placeholder="Enter coupon code"
             required
-            className="flex-grow rounded-lg border border-gray-300 bg-white px-4 py-1 text-gray-800 focus:outline-none focus:ring-2 focus:ring-green-600 transition"
+            className="flex-grow rounded-lg border border-gray-300 bg-white px-4 py-1 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition"
           />
           <button
           type="submit"
           disabled={isApplied}
-            className="bg-green-500 hover:bg-green-700 text-white btn rounded-lg font-semibold transition"
+            className="bg-indigo-500 hover:bg-indigo-700 text-white btn rounded-lg font-semibold transition"
           >
             Apply
           </button>

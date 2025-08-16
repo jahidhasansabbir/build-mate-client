@@ -61,7 +61,7 @@ const DashboardLayout = () => {
       {/* ✅ Sidebar */}
       <div className="drawer-side border-r border-gray-100 z-20">
         <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-        <aside className="menu p-4 w-64 min-h-full bg-gradient-to-bl from-green-50 via-purple-50 to-green-50   space-y-1">
+        <aside className="menu p-4 w-64 min-h-full bg-gradient-to-bl from-indigo-50 via-purple-50 to-indigo-50   space-y-1">
           <div className="px-3">
             <Logo></Logo>
           </div>

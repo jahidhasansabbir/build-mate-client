@@ -32,7 +32,7 @@ const MakePayment = () => {
   return (
     <section data-aos="fade-up" className="max-w-4xl mx-auto  py-10">
       <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-lg p-6 sm:p-10 text-black">
-        <h2 className="text-2xl sm:text-3xl font-bold text-green-500 mb-6 text-center drop-shadow-lg">
+        <h2 className="text-2xl sm:text-3xl font-bold text-indigo-500 mb-6 text-center drop-shadow-lg">
           Make Payment
         </h2>
 
@@ -44,7 +44,7 @@ const MakePayment = () => {
               type="email"
               defaultValue={user?.email}
               disabled
-              className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600"
             />
           </div>
 
@@ -56,7 +56,7 @@ const MakePayment = () => {
                 type="text"
                 defaultValue={floorNo}
                 disabled
-                className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               />
             </div>
             <div>
@@ -65,7 +65,7 @@ const MakePayment = () => {
                 type="text"
                 defaultValue={blockName}
                 disabled
-                className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               />
             </div>
             <div>
@@ -74,7 +74,7 @@ const MakePayment = () => {
                 type="text"
                 defaultValue={apartmentNo}
                 disabled
-                className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               />
             </div>
             <div>
@@ -83,7 +83,7 @@ const MakePayment = () => {
                 type="text"
                 defaultValue={`৳${rent}`}
                 disabled
-                className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+                className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@ const MakePayment = () => {
           <div>
             <label className="block text-gray-500 mb-1">Select Month</label>
             <select
-              className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-600"
+              className="w-full bg-white/20 text-black border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-600"
               onChange={handleMonth} value={selectedMonth}
               required
             >
@@ -124,7 +124,7 @@ const MakePayment = () => {
           <div className="text-center pt-4">
             <button
               type="submit"
-              className="bg-green-500 hover:bg-green-700 transition text-white font-semibold px-6 py-3 rounded-lg shadow-lg drop-shadow-md"
+              className="bg-indigo-500 hover:bg-indigo-700 transition text-white font-semibold px-6 py-3 rounded-lg shadow-lg drop-shadow-md"
             >
               Pay Rent
             </button>

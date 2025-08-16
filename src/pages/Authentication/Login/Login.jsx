@@ -53,7 +53,7 @@ const Login = () => {
   return (
     <div className="card bg-white w-11/12 border my-10 border-gray-200 max-w-sm shrink-0 shadow-xl mx-auto rounded-2xl">
       <div className="card-body space-y-4">
-        <h1 className="text-3xl text-green-600 font-bold md:text-4xl text-center">
+        <h1 className="text-3xl text-indigo-600 font-bold md:text-4xl text-center">
           Log in now!
         </h1>
         <form className="fieldset space-y-3" onSubmit={handleLoginWithEmail}>
@@ -61,22 +61,22 @@ const Login = () => {
           <input
             type="email"
             name="email"
-            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-green-600 focus:outline-none"
+            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:outline-none"
             placeholder="Email"
           />
           <label className="label text-gray-700 font-medium">Password</label>
           <input
             type="password"
             name="password"
-            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-green-600 focus:outline-none"
+            className="input input-bordered w-full border-gray-300 focus:ring-2 focus:ring-indigo-600 focus:outline-none"
             placeholder="Password"
           />
           <div>
-            <a className="link link-hover text-sm text-green-600 hover:underline">
+            <a className="link link-hover text-sm text-indigo-600 hover:underline">
               Forgot password?
             </a>
           </div>
-          <button className="btn bg-green-600 hover:bg-green-700 text-white w-full font-semibold mt-4 transition-all">
+          <button className="btn bg-indigo-600 hover:bg-indigo-700 text-white w-full font-semibold mt-4 transition-all">
             Login
           </button>
         </form>
@@ -86,7 +86,7 @@ const Login = () => {
       <p className="text-center pb-4 text-gray-600 text-sm">
         Haven't an account?{" "}
         <NavLink to="/register">
-          <span className="text-green-600 hover:underline font-medium">
+          <span className="text-indigo-600 hover:underline font-medium">
             Register
           </span>
         </NavLink>

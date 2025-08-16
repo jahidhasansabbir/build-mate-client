@@ -29,13 +29,13 @@ const ManageMembers = () => {
 
   return (
     <section data-aos="fade-up" className="max-w-4xl mx-auto py-10">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-500 mb-8 text-center">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-500 mb-8 text-center">
         Manage Members
       </h2>
 
       <div className="overflow-x-auto bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-md">
         <table className="min-w-full text-left text-sm sm:text-base text-black">
-          <thead className="bg-green-500/10 border-b border-gray-200">
+          <thead className="bg-indigo-500/10 border-b border-gray-200">
             <tr>
               <th className="px-4 py-3 font-semibold">#</th>
               <th className="px-4 py-3 font-semibold">Name</th>

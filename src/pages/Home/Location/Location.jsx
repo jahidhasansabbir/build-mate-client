@@ -14,7 +14,7 @@ export default function Location() {
   const position = [23.8103, 90.4125]; 
   return (
     <section className="bg-white bg-opacity-30 backdrop-blur-sm border border-gray-50 rounded-3xl p-8 text-gray-900 shadow-lg">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-500 mb-8 text-center">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-indigo-500 mb-8 text-center">
         Apartment Location 
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">

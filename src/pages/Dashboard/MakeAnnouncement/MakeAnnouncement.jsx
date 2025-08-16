@@ -40,7 +40,7 @@ const MakeAnnouncement = () => {
   return (
     <section data-aos="fade-up" className="max-w-4xl mx-auto py-10">
       <div className="bg-white/10 backdrop-blur-lg border border-gray-300 rounded-2xl p-8 shadow-lg text-black">
-        <h2 className="text-2xl sm:text-3xl font-bold text-green-500 mb-6 drop-shadow-lg">
+        <h2 className="text-2xl sm:text-3xl font-bold text-indigo-500 mb-6 drop-shadow-lg">
           Make an Announcement
         </h2>
 
@@ -61,7 +61,7 @@ const MakeAnnouncement = () => {
               onChange={handleChange}
               required
               placeholder="Enter announcement title"
-              className="w-full rounded-lg border border-gray-300 bg-white/20 text-black p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition"
+              className="w-full rounded-lg border border-gray-300 bg-white/20 text-black p-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition"
             />
           </div>
 
@@ -81,7 +81,7 @@ const MakeAnnouncement = () => {
               onChange={handleChange}
               required
               placeholder="Write your announcement here..."
-              className="w-full rounded-lg border border-gray-300 bg-white/20 text-black p-3 focus:outline-none focus:ring-2 focus:ring-green-600 transition resize-none"
+              className="w-full rounded-lg border border-gray-300 bg-white/20 text-black p-3 focus:outline-none focus:ring-2 focus:ring-indigo-600 transition resize-none"
             />
           </div>
 
@@ -89,7 +89,7 @@ const MakeAnnouncement = () => {
           <div>
             <button
               type="submit"
-              className="w-full bg-green-500 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition drop-shadow-md"
+              className="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition drop-shadow-md"
             >
               Post Announcement
             </button>
