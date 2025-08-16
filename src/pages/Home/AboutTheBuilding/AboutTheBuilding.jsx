@@ -3,7 +3,7 @@ export default function AboutTheBuilding() {
   return (
     <section className="text-gray-900">
       <div className="mx-auto bg-white bg-opacity-70 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 shadow-lg">
-        <h2 className="text-3xl sm:text-4xl text-center font-bold text-green-500 mb-6 drop-shadow-[0_1px_2px_rgba(22,163,74,0.4)]">
+        <h2 className="text-3xl sm:text-4xl text-center font-bold text-green-500 mb-6">
           About the Building
         </h2>
         <p className="text-lg leading-relaxed text-gray-600">

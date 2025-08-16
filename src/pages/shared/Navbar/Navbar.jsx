@@ -20,6 +20,11 @@ const Navbar = () => {
           Apartment
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/contact-us" className="text-black font-semibold">
+          Contact Us
+        </NavLink>
+      </li>
     </>
   );
   return (

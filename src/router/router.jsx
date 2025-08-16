@@ -18,6 +18,7 @@ import MemberRoute from "../Provider/MemberRoute";
 import AdminRoute from "../Provider/AdminRoute";
 import Payment from "../pages/Dashboard/Payment/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import ContactUs from "../pages/contact-us/ContactUs";
 
 
 export const router = createBrowserRouter([
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
             {
                 path: 'apartment',
                 Component: Apartment
+            }, 
+            {
+                path:'contact-us',
+                Component: ContactUs
             }
         ]
     },
