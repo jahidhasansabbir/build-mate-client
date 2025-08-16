@@ -144,8 +144,8 @@ This project uses the following core libraries and tools:
 ## 📦 Installation & Setup Guide
 
 ### 2. Install Frontend Dependencies
+Clone the frontend:
 ```bash
-# Clone the frontend
 git clone https://github.com/jahidhasansabbir/build-mate-client
 ```
 
@@ -169,9 +169,9 @@ VITE_SERVER = http://localhost:3000/
 ```
 
 ### 4. Install Backend Dependencies
+Clone the backend:
 ```bash
-# Clone the backend
-git clone https://github.com/jahidhasansabbir/build-mate-client
+git clone https://github.com/jahidhasansabbir/build-mate-server
 ```
 ```bash
 cd build-mate-server
