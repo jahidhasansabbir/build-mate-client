@@ -151,40 +151,30 @@ git clone https://github.com/jahidhasansabbir/build-mate-client
 
 ```bash
 cd build-mate-client
-<!-- ## 📦 Installation & Setup Guide
-
-### 1. Clone the Repositories
-
-```bash
-# Frontend
-https://github.com/your-username/buildmate-client
-
-# Backend
-https://github.com/your-username/buildmate-server
-```
-
-### 2. Install Frontend Dependencies
-
-```bash
-cd buildmate-client
 npm install
 ```
 
 ### 3. Setup Frontend `.env`
 
 ```env
-VITE_apiKey=your_api_key
-VITE_authDomain=your_auth_domain
-VITE_projectId=your_project_id
-VITE_storageBucket=your_storage_bucket
-VITE_messagingSenderId=your_messaging_sender_id
-VITE_appId=your_app_id
+VITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+VITE_STRIPE_PUBLISHABLE_KEY = your_stripe_publishable_key
+#after install and run the server
+VITE_SERVER = http://localhost:3000/
 ```
 
 ### 4. Install Backend Dependencies
-
 ```bash
-cd buildmate-server
+# Clone the backend
+git clone https://github.com/jahidhasansabbir/build-mate-client
+```
+```bash
+cd build-mate-server
 npm install
 ```
 
@@ -192,7 +182,6 @@ npm install
 
 ```env
 URI=your_mongodb_uri
-SECRET_KEY=your_jwt_secret
 STRIPE_SECRET_KEY=your_stripe_secret
 ```
 
@@ -225,5 +214,6 @@ Then open your browser and visit:
 * All data validated before submission
 
 ---
+
 
 > 🎉 Thank you for visiting 
