@@ -61,7 +61,7 @@ const ContactUs = () => {
       {/* Content */}
       <div className="grid md:grid-cols-2 gap-10 w-full">
         {/* Contact Info */}
-        <div className="bg-white p-8 rounded-2xl shadow-md">
+        <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-6 text-gray-800">
             Contact Information
           </h2>
@@ -95,7 +95,7 @@ const ContactUs = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="bg-white p-8 rounded-2xl shadow-md">
+        <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-6 text-gray-800">
             Send a Message
           </h2>
@@ -103,29 +103,29 @@ const ContactUs = () => {
             <input
               type="text"
               placeholder="Your Name"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               required
             />
             <input
               type="email"
               placeholder="Your Email"
-              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full border-gray-300 px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               required
             />
             <input
               type="text"
               placeholder="Subject"
-              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full border-gray-300 px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <textarea
               rows="4"
               placeholder="Your Message"
-              className="w-full border-gray-300 px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full border-gray-300 px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
               required
             ></textarea>
             <button
               type="submit"
-              className="w-full bg-indigo-600 text-white py-3 rounded-xl hover:bg-indigo-700 transition font-semibold"
+              className="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-800 transition font-semibold cursor-pointer"
             >
               Send Message
             </button>
@@ -142,7 +142,7 @@ const ContactUs = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-xl shadow-md cursor-pointer"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer"
               onClick={() => toggleFAQ(index)}
             >
               <div className="flex justify-between items-center">

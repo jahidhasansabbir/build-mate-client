@@ -50,9 +50,9 @@ const ManageCoupons = () => {
       background: "rgba(255 255 255 / 0.8)",
       customClass: {
         popup:
-          "backdrop-blur-xl bg-white/10 text-black rounded-xl border border-gray-200",
+          "backdrop-blur-xl bg-white/10 text-black rounded-lg border border-gray-200",
         confirmButton:
-          "bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition duration-200",
+          "bg-indigo-600 hover:bg-indigo-800 text-white px-5 py-2 rounded-lg text-sm font-semibold transition duration-200",
         cancelButton:
           "bg-gray-200 ml-4 hover:bg-gray-300 text-black px-5 py-2 rounded-lg text-sm font-medium transition duration-200",
       },
@@ -92,9 +92,9 @@ const ManageCoupons = () => {
         background: "rgba(255 255 255 / 1)",
         customClass: {
           popup:
-            "backdrop-blur-xl bg-white/10 text-black rounded-xl border border-gray-200",
+            "backdrop-blur-xl bg-white/10 text-black rounded-lg border border-gray-200",
           confirmButton:
-            "bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg text-sm font-semibold transition duration-200",
+            "bg-indigo-600 hover:bg-indigo-800 text-white px-5 py-2 rounded-lg text-sm font-semibold transition duration-200",
           title: "text-indigo-600",
           content: "text-black text-sm",
         },
@@ -116,13 +116,13 @@ const ManageCoupons = () => {
         </h2>
         <button
           onClick={handleAddCoupon}
-          className="flex items-center gap-2 bg-indigo-500 hover:bg-indigo-700 btn text-white shadow transition"
+          className="flex items-center gap-2 bg-indigo-600 rounded-lg hover:bg-indigo-800 btn text-white shadow transition"
         >
           <MdAddCircleOutline className="text-lg" /> Add Coupon
         </button>
       </div>
 
-      <div className="overflow-x-auto rounded-2xl bg-white/10 backdrop-blur-lg border border-gray-200 shadow-md">
+      <div className="overflow-x-auto rounded-lg bg-white/10 backdrop-blur-lg border border-gray-200">
         <table className="min-w-full text-sm text-left text-black">
           <thead className="bg-indigo-500/10 border-b border-gray-200 text-gray-700 text-xs uppercase">
             <tr>

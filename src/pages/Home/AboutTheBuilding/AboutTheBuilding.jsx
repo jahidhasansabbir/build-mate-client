@@ -1,7 +1,7 @@
 export default function AboutTheBuilding() {
   return (
     <section className="text-gray-900">
-      <div className="mx-auto bg-white backdrop-blur-sm border border-gray-200 rounded-2xl p-8 shadow-lg">
+      <div className="mx-auto bg-white backdrop-blur-sm border border-gray-200 rounded-lg p-8 shadow-lg">
         {/* Title */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-center font-extrabold text-indigo-500 mb-6">
           About the Building

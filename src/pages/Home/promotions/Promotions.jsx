@@ -26,7 +26,7 @@ const promotionsData = [
 const Promotions = () => {
   return (
     <section className="text-gray-900">
-      <div className="bg-white bg-opacity-70 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 shadow-lg">
+      <div className="bg-white bg-opacity-70 backdrop-blur-sm border border-gray-200 rounded-lg p-8 shadow-lg">
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-indigo-500 text-center mb-4">
           Resident Perks
@@ -44,7 +44,7 @@ const Promotions = () => {
             return (
               <div
                 key={index}
-                className="bg-indigo-50 bg-opacity-50 backdrop-blur-sm border border-indigo-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+                className="bg-indigo-50 bg-opacity-50 backdrop-blur-sm border border-indigo-200 rounded-lg p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex flex-col items-center text-center">
                   <Icon className="text-indigo-600 text-4xl mb-3" />
@@ -57,7 +57,7 @@ const Promotions = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   href="/terms-and-conditions"
-                  className="mt-4 text-center bg-indigo-600 text-white py-2 px-4 rounded-xl font-semibold hover:bg-indigo-700 transition w-full"
+                  className="mt-4 text-center bg-indigo-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-indigo-800 transition w-full"
                 >
                   Learn More
                 </a>

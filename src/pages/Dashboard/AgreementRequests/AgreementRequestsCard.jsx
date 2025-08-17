@@ -44,10 +44,10 @@ const AgreementRequestsCard = ({ req, refetch }) => {
   return (
     <div
       key={req._id}
-      className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition duration-300 text-black flex flex-col justify-between"
+      className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-lg p-6  text-black flex flex-col justify-between"
     >
       <div className="flex items-center gap-4 mb-5">
-        <FaUserCircle className="text-5xl text-indigo-500 drop-shadow-md" />
+        <FaUserCircle className="text-5xl text-indigo-600 drop-shadow-md" />
         <div>
           <h3 className="text-xl font-semibold text-indigo-700">{req.userName}</h3>
           <p className="text-sm text-indigo-400 flex items-center gap-1">
@@ -79,13 +79,13 @@ const AgreementRequestsCard = ({ req, refetch }) => {
       <div className="flex justify-between gap-3 mt-8">
         <button
           onClick={() => handleAccept(req._id)}
-          className="flex-1 bg-indigo-500 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 font-semibold transition shadow-md shadow-indigo-500/50"
+          className="flex-1 bg-indigo-600 hover:bg-indigo-800 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 font-semibold  cursor-pointer"
         >
           <FaCheckCircle className="text-lg" /> Accept
         </button>
         <button
           onClick={() => handleReject(req._id)}
-          className="flex-1 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 font-semibold transition shadow-md shadow-red-500/50"
+          className="flex-1 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 font-semibold cursor-pointer"
         >
           <FaTimesCircle className="text-lg" /> Reject
         </button>

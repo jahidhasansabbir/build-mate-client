@@ -62,60 +62,57 @@ const Apartment = () => {
       </h2>
 
       {/* Rent Range + Sorting */}
-     <div className="bg-white shadow-xl rounded-2xl p-6 mb-8 border border-gray-100">
-  <h2 className="text-lg font-semibold text-gray-800 mb-4">Filter Apartments</h2>
+      <div className="bg-white shadow-sm rounded-lg p-6 mb-8 border border-gray-100">
+        <h2 className="text-lg font-semibold text-gray-800 mb-4">
+          Filter Apartments
+        </h2>
 
-  <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-    {/* Left: Rent Inputs + Button */}
-    <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
-      {/* Min Rent */}
-      <input
-        type="number"
-        placeholder="Min Rent"
-        className="w-full sm:w-40 px-4 py-2 rounded-xl shadow-sm bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
-        value={minRent}
-        onChange={(e) => setMinRent(e.target.value)}
-        min={0}
-      />
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Left: Rent Inputs + Button */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+            {/* Min Rent */}
+            <input
+              type="number"
+              placeholder="Min Rent"
+              className="w-full sm:w-40 px-4 py-2 rounded-lg shadow-sm bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+              value={minRent}
+              onChange={(e) => setMinRent(e.target.value)}
+              min={0}
+            />
 
-      {/* Max Rent */}
-      <input
-        type="number"
-        placeholder="Max Rent"
-        className="w-full sm:w-40 px-4 py-2 rounded-xl shadow-sm bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
-        value={maxRent}
-        onChange={(e) => setMaxRent(e.target.value)}
-        min={0}
-      />
+            {/* Max Rent */}
+            <input
+              type="number"
+              placeholder="Max Rent"
+              className="w-full sm:w-40 px-4 py-2 rounded-lg shadow-sm bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+              value={maxRent}
+              onChange={(e) => setMaxRent(e.target.value)}
+              min={0}
+            />
 
-      {/* Apply Button */}
-      <button
-        onClick={handleApplyFilter}
-        className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-xl shadow-md transition-all duration-200"
-      >
-        Apply
-      </button>
-    </div>
+            {/* Apply Button */}
+            <button
+              onClick={handleApplyFilter}
+              className="bg-indigo-600 hover:bg-indigo-800 text-white font-semibold px-6 py-2 rounded-lg shadow-md transition-all duration-200 cursor-pointer"
+            >
+              Apply
+            </button>
+          </div>
 
-    {/* Right: Sorting */}
-    <div className="flex flex-col w-full md:w-auto">
-      <label className="text-sm font-medium text-gray-700 mb-1">Price</label>
-      <select
-        value={sortOrder}
-        onChange={(e) => setSortOrder(e.target.value)}
-        className="w-full md:w-48 px-4 py-2 rounded-xl shadow-sm bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
-      >
-        <option value="asc">Low to High</option>
-        <option value="desc">High to Low</option>
-      </select>
-    </div>
-  </div>
-</div>
-
-
-
-
-
+          {/* Right: Sorting */}
+          <div className="flex flex-col w-full md:w-auto">
+            
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="w-full md:w-48 px-4 py-2 rounded-lg shadow-sm bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+            >
+              <option value="asc">Price: Low to High</option>
+              <option value="desc">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
       {/* Apartments Grid */}
       <div className="grid gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
@@ -136,10 +133,10 @@ const Apartment = () => {
         <button
           onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
           disabled={page === 1}
-          className={`px-4 py-2 rounded-lg ${
+          className={`px-4 py-2 rounded-md ${
             page === 1
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-              : "bg-indigo-500 text-white hover:bg-indigo-600"
+              : "bg-indigo-600 text-white hover:bg-indigo-600"
           }`}
         >
           Prev
@@ -149,9 +146,9 @@ const Apartment = () => {
           <button
             key={i}
             onClick={() => setPage(i + 1)}
-            className={`px-4 py-2 rounded-lg ${
+            className={`px-4 py-2 rounded-md ${
               page === i + 1
-                ? "bg-indigo-500 text-white"
+                ? "bg-indigo-600 text-white"
                 : "bg-gray-200 text-gray-700 hover:bg-gray-300"
             }`}
           >
@@ -162,10 +159,10 @@ const Apartment = () => {
         <button
           onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
           disabled={page === totalPages}
-          className={`px-4 py-2 rounded-lg ${
+          className={`px-4 py-2 rounded-md ${
             page === totalPages
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-              : "bg-indigo-500 text-white hover:bg-indigo-600"
+              : "bg-indigo-600 text-white hover:bg-indigo-700"
           }`}
         >
           Next

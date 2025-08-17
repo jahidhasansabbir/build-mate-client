@@ -33,7 +33,7 @@ const ManageMembers = () => {
         Manage Members
       </h2>
 
-      <div className="overflow-x-auto bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-md">
+      <div className="overflow-x-auto bg-white/10 backdrop-blur-lg border border-gray-200 rounded-lg ">
         <table className="min-w-full text-left text-sm sm:text-base text-black">
           <thead className="bg-indigo-500/10 border-b border-gray-200">
             <tr>

@@ -40,14 +40,14 @@ const CouponRow = ({ coupon, refetch }) => {
       <td className="px-6 py-4 flex justify-center items-center gap-4">
         <button
           onClick={() => handleEdit(coupon)}
-          className="text-indigo-600 btn hover:text-indigo-800"
+          className="bg-indigo-600 text-white btn hover:bg-indigo-800 cursor-pointer rounded-lg"
           title="Edit"
         >
           {isAvailable ? "Available" : "Unavailable"}
         </button>
         <button
           onClick={() => handleDelete(coupon._id)}
-          className="text-red-600 hover:text-red-800"
+          className="text-red-600 hover:text-red-800 cursor-pointer"
           title="Delete"
         >
           <FaTrashAlt />

@@ -112,7 +112,7 @@ const CheckoutForm = ({ agreement, month }) => {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6 space-y-4 border-2 border-gray-200">
+    <div className="bg-white rounded-lg shadow-lg p-6 space-y-4 border-2 border-gray-200">
       <form onSubmit={handleSubmit} className="space-y-4">
         <h2 className="text-2xl font-semibold text-center text-indigo-600">
           Pay Your Rent
@@ -161,7 +161,7 @@ const CheckoutForm = ({ agreement, month }) => {
           <button
           type="submit"
           disabled={isApplied}
-            className="bg-indigo-500 hover:bg-indigo-700 text-white btn rounded-lg font-semibold transition"
+            className="bg-indigo-500 hover:bg-indigo-800 text-white btn rounded-lg font-semibold transition"
           >
             Apply
           </button>

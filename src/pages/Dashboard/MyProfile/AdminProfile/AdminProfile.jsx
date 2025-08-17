@@ -43,7 +43,7 @@ const AdminProfile = ({ user }) => {
 
   return (
     <section className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-      <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 md:p-10 shadow-xl text-black">
+      <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-lg p-6 md:p-10 text-black">
 
       
 
@@ -51,7 +51,7 @@ const AdminProfile = ({ user }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
           {/* Rooms Overview */}
-          <div className="rounded-xl border border-gray-100 shadow-md p-6 bg-white/5 flex flex-col items-center">
+          <div className="rounded-lg border border-gray-100 p-6 bg-white/5 flex flex-col items-center">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">Rooms Overview</h3>
             <p className="mb-2 text-gray-700 text-center">
               Total Rooms: <span className="font-bold">{totalRooms}</span><br />
@@ -79,7 +79,7 @@ const AdminProfile = ({ user }) => {
           </div>
 
           {/* Users Overview */}
-          <div className="rounded-xl border border-gray-100 shadow-md p-6 bg-white/5 flex flex-col items-center">
+          <div className="rounded-lg border border-gray-100 p-6 bg-white/5 flex flex-col items-center">
             <h3 className="text-xl font-semibold mb-4 text-gray-800">Users Overview</h3>
             <p className="mb-2 text-gray-700 text-center">
               Total Users: <span className="font-bold">{users}</span><br />

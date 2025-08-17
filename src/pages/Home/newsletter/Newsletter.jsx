@@ -32,7 +32,7 @@ const Newsletter = () => {
 
   return (
     <section className="text-gray-900">
-      <div className="mx-auto bg-white bg-opacity-70 backdrop-blur-sm border border-gray-200 rounded-2xl p-8 shadow-md">
+      <div className="mx-auto bg-white bg-opacity-70 backdrop-blur-sm border border-gray-200 rounded-lg p-8 shadow-md">
         {/* Heading */}
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-indigo-500 text-center mb-4">
           Stay Updated
@@ -48,7 +48,7 @@ const Newsletter = () => {
           onSubmit={handleSubmit}
           className="flex flex-col sm:flex-row items-center gap-4 max-w-2xl mx-auto"
         >
-          <div className="flex items-center border border-gray-300 rounded-xl px-4 py-2 w-full">
+          <div className="flex items-center border border-gray-300 rounded-lg px-4 py-2 w-full">
             <FaEnvelope className="text-indigo-600 mr-2" />
             <input
               type="email"
@@ -61,7 +61,7 @@ const Newsletter = () => {
           </div>
           <button
             type="submit"
-            className="bg-indigo-600 text-white py-3 px-6 rounded-xl font-semibold hover:bg-indigo-700 transition w-full sm:w-auto"
+            className="bg-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-indigo-800 transition w-full sm:w-auto"
           >
             Subscribe
           </button>

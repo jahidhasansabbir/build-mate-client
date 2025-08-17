@@ -22,7 +22,7 @@ const Profile = () => {
 
     return (
         <div className="min-h-[80vh] flex justify-center items-start p-6 ">
-            <div className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-lg border border-gray-200">
+            <div className="bg-white rounded-lg p-10 w-full max-w-lg border border-gray-200">
                 {/* Avatar */}
                 <div className="flex flex-col items-center gap-4">
                     <img

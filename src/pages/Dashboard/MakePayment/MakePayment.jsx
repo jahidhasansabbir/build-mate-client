@@ -31,7 +31,7 @@ const MakePayment = () => {
 
   return (
     <section data-aos="fade-up" className="max-w-4xl mx-auto  py-10">
-      <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-lg p-6 sm:p-10 text-black">
+      <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-lg p-6 sm:p-10 text-black">
         <h2 className="text-2xl sm:text-3xl font-bold text-indigo-500 mb-6 text-center drop-shadow-lg">
           Make Payment
         </h2>
@@ -124,7 +124,7 @@ const MakePayment = () => {
           <div className="text-center pt-4">
             <button
               type="submit"
-              className="bg-indigo-500 hover:bg-indigo-700 transition text-white font-semibold px-6 py-3 rounded-lg shadow-lg drop-shadow-md"
+              className="bg-indigo-600 hover:bg-indigo-800 transition text-white font-semibold px-6 py-3 rounded-lg shadow-lg drop-shadow-md cursor-pointer"
             >
               Pay Rent
             </button>

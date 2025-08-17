@@ -13,7 +13,7 @@ L.Icon.Default.mergeOptions({
 export default function Location() {
   const position = [23.8103, 90.4125]; 
   return (
-    <section className="bg-white bg-opacity-30 backdrop-blur-sm border border-gray-50 rounded-3xl p-8 text-gray-900 shadow-lg">
+    <section className="bg-white bg-opacity-30 backdrop-blur-sm border border-gray-50 rounded-lg p-8 text-gray-900 shadow-lg">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-indigo-500 mb-8 text-center">
         Apartment Location 
       </h2>
@@ -29,12 +29,12 @@ export default function Location() {
         </div>
 
         {/* Map */}
-        <div className="rounded-2xl overflow-hidden">
+        <div className="rounded-lg overflow-hidden">
           <MapContainer
             center={position}
             zoom={15}
             scrollWheelZoom={false}
-            className="w-full h-72 sm:h-96 rounded-2xl"
+            className="w-full h-72 sm:h-96 rounded-lg"
           >
             <TileLayer
               attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a>'

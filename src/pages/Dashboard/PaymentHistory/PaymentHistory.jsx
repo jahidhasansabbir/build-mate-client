@@ -31,7 +31,7 @@ const PaymentHistory = () => {
       {payments?.length === 0 ? (
         <p className="text-center text-gray-500 text-lg">No payment history found.</p>
       ) : (
-        <div className="overflow-x-auto rounded-xl shadow border border-gray-200">
+        <div className="overflow-x-auto rounded-lg  border border-gray-200">
           <table className="min-w-full table-auto">
             <thead className="bg-indigo-100 text-indigo-900 text-left text-sm uppercase font-semibold">
               <tr>
@@ -54,7 +54,7 @@ const PaymentHistory = () => {
                   <td className="px-6 py-4">
                     <span className={`inline-block px-3 py-1 text-xs rounded-full font-semibold ${
                       payment.status === "success"
-                        ? "bg-indigo-100 text-indigo-700"
+                        ? "bg-green-100 text-black"
                         : "bg-red-100 text-red-600"
                     }`}>
                       {payment.status}

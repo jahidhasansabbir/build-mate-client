@@ -12,7 +12,7 @@ const Forbidden = () => {
       </p>
       <Link
         to="/"
-        className="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-xl text-sm md:text-base transition duration-200 shadow-md"
+        className="bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg text-sm md:text-base transition duration-200 shadow-md"
       >
         Go Back Home
       </Link>

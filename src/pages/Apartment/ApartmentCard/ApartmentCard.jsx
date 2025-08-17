@@ -25,7 +25,7 @@ const ApartmentCard = ({ room , role}) => {
     confirmButtonColor: "#10b981", 
     background: "#fefefe",
     customClass: {
-      popup: "rounded-xl shadow-lg",
+      popup: "rounded-lg shadow-lg",
       title: "text-lg font-semibold",
       confirmButton: "px-5 py-2 rounded-md text-white",
     },
@@ -71,7 +71,7 @@ const sweetAlert = () => {
   };
 
   return (
-    <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-indigo-200 transition-shadow duration-300">
+    <div className="bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-indigo-200 transition-shadow duration-300">
       <img
         src={apartmentImage}
         alt={`Apartment ${apartmentNo}`}
@@ -97,7 +97,7 @@ const sweetAlert = () => {
 
         <button
           onClick={handleAgreement}
-          className="mt-2 w-full text-center bg-indigo-500 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-sm sm:text-base"
+          className="mt-2 w-full text-center bg-indigo-600 hover:bg-indigo-800 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 text-sm sm:text-base cursor-pointer"
         >
           Agreement
         </button>

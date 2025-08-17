@@ -19,7 +19,7 @@ const testimonialsData = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-white border border-gray-200 rounded-3xl p-8 text-gray-900 shadow-lg">
+    <section className="bg-white border border-gray-200 rounded-lg p-8 text-gray-900 shadow-lg">
       {/* Title */}
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-indigo-500 mb-8 text-center">
         What Our Users Say
@@ -30,7 +30,7 @@ const Testimonials = () => {
         {testimonialsData.map((testimonial, index) => (
           <div
             key={index}
-            className="bg-indigo-50/50 backdrop-blur-sm border border-indigo-200 rounded-xl p-6 flex flex-col items-center text-center transition-transform duration-300 hover:shadow-md"
+            className="bg-indigo-50/50 backdrop-blur-sm border border-indigo-200 rounded-lg p-6 flex flex-col items-center text-center transition-transform duration-300 hover:shadow-md"
           >
             <FaQuoteLeft className="text-3xl text-indigo-600 mb-3" />
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
