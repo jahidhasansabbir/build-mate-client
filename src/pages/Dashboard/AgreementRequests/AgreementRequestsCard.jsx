@@ -71,7 +71,7 @@ const AgreementRequestsCard = ({ req, refetch }) => {
           Rent: <span className="font-semibold">{req.rent}৳</span>
         </p>
         <p className="flex items-center gap-2">
-          <MdDateRange className="text-purple-500" />
+          <MdDateRange className="text-indigo-500" />
           Requested: <span className="font-semibold">{formattedDate}</span>
         </p>
       </div>

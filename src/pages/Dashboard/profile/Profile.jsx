@@ -28,7 +28,7 @@ const Profile = () => {
                     <img
                         src={userInfo?.photoURL}
                         alt={userInfo?.name}
-                        className="w-28 h-28 rounded-full border-4 border-gradient-to-r from-indigo-500 to-purple-500 object-cover shadow-lg"
+                        className="w-28 h-28 rounded-full border-4 border-gradient-to-r from-indigo-500 to-indigo-500 object-cover shadow-lg"
                     />
                     <h2 className="text-3xl font-bold text-gray-900">{userInfo?.name}</h2>
                     <p className="flex items-center gap-2 text-indigo-600 font-medium">
