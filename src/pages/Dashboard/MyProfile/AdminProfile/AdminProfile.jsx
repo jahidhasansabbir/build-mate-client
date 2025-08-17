@@ -3,74 +3,110 @@ import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../hooks/useAuth';
 import Loading from '../../../shared/Loading/Loading';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { FiUsers, FiHome, FiCheckCircle, FiXCircle } from 'react-icons/fi';
 
 const AdminProfile = ({ user }) => {
   const axiosSecure = useAxiosSecure();
-  const { isUserLoading}=useAuth();
+  const { isUserLoading } = useAuth();
+
   const { data: adminStats, isLoading } = useQuery({
     enabled: !isUserLoading && !!user?.accessToken,
-    queryKey: ["admin-profile"],
+    queryKey: ['admin-profile'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/admin-profile`);
       return res.data;
     }
   });
-  const apartment = adminStats?.apartments;
-  const userData = adminStats?.user;
-  const totalRooms = apartment?.length;
-  const availableRooms = apartment?.filter(room => room.available === true).length;
-  const users = userData?.length;
-  const members = userData?.filter(person => person?.role === "member").length;
 
-  const availablePercent = ((availableRooms / totalRooms) * 100).toFixed(1);
-  const unavailablePercent = (100 - availablePercent).toFixed(1);
+  if (isLoading) return <Loading />;
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
+  const apartment = adminStats?.apartments || [];
+  const userData = adminStats?.user || [];
+
+  const totalRooms = apartment.length;
+  const availableRooms = apartment.filter(room => room.available).length;
+  const unavailableRooms = totalRooms - availableRooms;
+
+  const users = userData.length;
+  const members = userData.filter(person => person.role === 'member').length;
+  const otherUsers = users - members;
+
+  const roomChartData = [
+    { name: 'Available', value: availableRooms, color: '#4f46e5', icon: <FiCheckCircle className="text-indigo-500" /> },
+    { name: 'Unavailable', value: unavailableRooms, color: '#ef4444', icon: <FiXCircle className="text-red-500" /> }
+  ];
+
+  const userChartData = [
+    { name: 'Members', value: members, color: '#4f46e5', icon: <FiUsers className="text-indigo-500" /> },
+    { name: 'Other Users', value: otherUsers, color: '#22c55e', icon: <FiUsers className="text-green-500" /> }
+  ];
 
   return (
-    <section className="max-w-7xl py-10">
-      <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 md:p-10 shadow-lg text-black">
-        {/* Admin Info */}
-        <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
-          <img
-            src={user?.photoURL}
-            alt="Admin"
-            className="w-28 h-28 md:w-32 md:h-32 rounded-full border-4 border-gray-100 shadow-md"
-          />
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black">{user?.displayName}</h2>
-            <p className="text-sm sm:text-base mt-1 text-gray-700">{user?.email}</p>
-          </div>
-        </div>
+    <section className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 md:p-10 shadow-xl text-black">
 
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
-            <p className="text-lg text-black">Total Rooms</p>
-            <h3 className="text-2xl font-bold text-indigo-700">{totalRooms}</h3>
+      
+
+        {/* Combined Info Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+          {/* Rooms Overview */}
+          <div className="rounded-xl border border-gray-100 shadow-md p-6 bg-white/5 flex flex-col items-center">
+            <h3 className="text-xl font-semibold mb-4 text-gray-800">Rooms Overview</h3>
+            <p className="mb-2 text-gray-700 text-center">
+              Total Rooms: <span className="font-bold">{totalRooms}</span><br />
+              Available: <span className="text-indigo-600 font-bold">{availableRooms}</span> 
+            </p>
+            <ResponsiveContainer width="100%" height={200}>
+              <PieChart>
+                <Pie
+                  data={roomChartData}
+                  dataKey="value"
+                  nameKey="name"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={80}
+                  label
+                >
+                  {roomChartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip formatter={(value, name) => [`${value} rooms`, name]} />
+                <Legend verticalAlign="bottom" />
+              </PieChart>
+            </ResponsiveContainer>
           </div>
 
-          <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
-            <p className="text-lg text-black">Available Rooms (%)</p>
-            <h3 className="text-2xl font-bold text-indigo-600">{availablePercent}%</h3>
+          {/* Users Overview */}
+          <div className="rounded-xl border border-gray-100 shadow-md p-6 bg-white/5 flex flex-col items-center">
+            <h3 className="text-xl font-semibold mb-4 text-gray-800">Users Overview</h3>
+            <p className="mb-2 text-gray-700 text-center">
+              Total Users: <span className="font-bold">{users}</span><br />
+              Members: <span className="text-indigo-600 font-bold">{members}</span> 
+            </p>
+            <ResponsiveContainer width="100%" height={200}>
+              <PieChart>
+                <Pie
+                  data={userChartData}
+                  dataKey="value"
+                  nameKey="name"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={80}
+                  label
+                >
+                  {userChartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip formatter={(value, name) => [`${value} users`, name]} />
+                <Legend  verticalAlign="bottom" />
+              </PieChart>
+            </ResponsiveContainer>
           </div>
 
-          <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
-            <p className="text-lg text-black">Unavailable Rooms (%)</p>
-            <h3 className="text-2xl font-bold text-red-500">{unavailablePercent}%</h3>
-          </div>
-
-          <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
-            <p className="text-lg text-black">Total Users</p>
-            <h3 className="text-2xl font-bold text-indigo-700">{users}</h3>
-          </div>
-
-          <div className="rounded-xl p-6 border border-gray-100 shadow-md bg-white/5">
-            <p className="text-lg text-black">Total Members</p>
-            <h3 className="text-2xl font-bold text-indigo-600">{members}</h3>
-          </div>
         </div>
       </div>
     </section>

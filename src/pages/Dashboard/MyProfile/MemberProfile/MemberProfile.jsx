@@ -1,74 +1,47 @@
 import React from "react";
-import {
-  FiUser,
-  FiMail,
-  FiCalendar,
-  FiGrid,
-  FiHash,
-  FiLayers,
-} from "react-icons/fi";
+import { FiCalendar, FiGrid, FiHash, FiLayers } from "react-icons/fi";
 
-const UserProfile = ({ user, agreement }) => {
+const UserProfile = ({ agreement }) => {
   return (
-    <section className="max-w-4xl mx-auto py-10">
-      <div className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-md p-6 sm:p-10 space-y-6 text-black">
-        {/* Profile Header */}
-        <div className="flex flex-col sm:flex-row items-center gap-6">
-          <img
-            src={user?.photoURL}
-            alt="User"
-            className="w-24 h-24 rounded-full border-4 border-gray-100"
-          />
-          <div className="text-center sm:text-left">
-            <h2 className="text-2xl sm:text-3xl font-bold text-black flex items-center gap-2">
-              {user?.displayName || "Unknown User"}
-            </h2>
-            <p className="text-gray-600 flex items-center gap-2 mt-1">
-              <FiMail className="text-indigo-400" />
-              {user?.email || "No email provided"}
-            </p>
-          </div>
-        </div>
-
-        <hr className="border-gray-100" />
+    <section className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="bg-white/20 backdrop-blur-md border border-gray-200 rounded-3xl shadow-xl p-8 sm:p-12 space-y-8 text-black">
 
         {/* Apartment & Agreement Info */}
         <div className="grid gap-6 sm:grid-cols-2">
-          <div>
-            <p className="text-sm text-gray-500 mb-1 flex items-center gap-2">
+          <div className="bg-white/10 rounded-xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
+            <p className="text-sm text-gray-400 mb-2 flex items-center gap-2">
               <FiCalendar /> Agreement Accepted On
             </p>
-            <p className="font-semibold text-lg text-black">
-              {new Date(agreement?.acceptedDate).toLocaleDateString("en-GB", {
-  day: "2-digit",
-  month: "long",
-  year: "numeric",
-})}
+            <p className="font-semibold text-lg text-gray-900">
+              {agreement?.acceptedDate
+                ? new Date(agreement.acceptedDate).toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  })
+                : "N/A"}
             </p>
           </div>
-          <div>
-            <p className="text-sm text-gray-500 mb-1 flex items-center gap-2">
+
+          <div className="bg-white/10 rounded-xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
+            <p className="text-sm text-gray-400 mb-2 flex items-center gap-2">
               <FiGrid /> Floor No
             </p>
-            <p className="font-semibold text-lg text-black">
-              {agreement?.floorNo || "N/A"}
-            </p>
+            <p className="font-semibold text-lg text-gray-900">{agreement?.floorNo || "N/A"}</p>
           </div>
-          <div>
-            <p className="text-sm text-gray-500 mb-1 flex items-center gap-2">
+
+          <div className="bg-white/10 rounded-xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
+            <p className="text-sm text-gray-400 mb-2 flex items-center gap-2">
               <FiLayers /> Block Name
             </p>
-            <p className="font-semibold text-lg text-black">
-              {agreement?.blockName || "N/A"}
-            </p>
+            <p className="font-semibold text-lg text-gray-900">{agreement?.blockName || "N/A"}</p>
           </div>
-          <div>
-            <p className="text-sm text-gray-500 mb-1 flex items-center gap-2">
+
+          <div className="bg-white/10 rounded-xl p-6 flex flex-col hover:shadow-lg transition-shadow duration-300">
+            <p className="text-sm text-gray-400 mb-2 flex items-center gap-2">
               <FiHash /> Apartment No
             </p>
-            <p className="font-semibold text-lg text-black">
-              {agreement?.apartmentNo || "N/A"}
-            </p>
+            <p className="font-semibold text-lg text-gray-900">{agreement?.apartmentNo || "N/A"}</p>
           </div>
         </div>
       </div>

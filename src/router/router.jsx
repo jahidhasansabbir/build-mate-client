@@ -21,6 +21,7 @@ import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import ContactUs from "../pages/contact-us/ContactUs";
 import TermsAndConditions from "../pages/terms-and-conditions/TermsAndConditions";
 import Error404 from "../pages/Error/Error404";
+import Profile from "../pages/Dashboard/profile/Profile";
 
 
 export const router = createBrowserRouter([
@@ -90,6 +91,10 @@ export const router = createBrowserRouter([
             {
                 path:'payment-history',
                 element:<MemberRoute><PaymentHistory></PaymentHistory></MemberRoute>
+            },
+            {
+                path: 'profile',
+                element:<PrivateRoute><Profile/></PrivateRoute>
             }
         ]
     },
