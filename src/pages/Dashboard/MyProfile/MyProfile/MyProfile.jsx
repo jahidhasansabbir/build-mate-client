@@ -28,7 +28,7 @@ const MyProfile = () => {
                 role==='user' && <UserProfile user={user}></UserProfile>
             }
             {
-                role==="admin" && <AdminProfile agreement={agreement}></AdminProfile>
+                role==="admin" && <AdminProfile user={user} agreement={agreement}></AdminProfile>
             }
         </div>
     );

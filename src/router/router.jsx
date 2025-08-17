@@ -20,6 +20,7 @@ import Payment from "../pages/Dashboard/Payment/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import ContactUs from "../pages/contact-us/ContactUs";
 import TermsAndConditions from "../pages/terms-and-conditions/TermsAndConditions";
+import Error404 from "../pages/Error/Error404";
 
 
 export const router = createBrowserRouter([
@@ -100,8 +101,8 @@ export const router = createBrowserRouter([
         path:'terms-and-conditions',
         Component: TermsAndConditions
     },
-    // {
-    //     path: '*',
-    //     Component: Erro
-    // }
+    {
+        path: '*',
+        Component: Error404
+    }
 ])

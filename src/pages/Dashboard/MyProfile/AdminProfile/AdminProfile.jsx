@@ -4,9 +4,9 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../hooks/useAuth';
 import Loading from '../../../shared/Loading/Loading';
 
-const AdminProfile = ({ agreement }) => {
+const AdminProfile = ({ user }) => {
   const axiosSecure = useAxiosSecure();
-  const {user, isUserLoading}=useAuth();
+  const { isUserLoading}=useAuth();
   const { data: adminStats, isLoading } = useQuery({
     enabled: !isUserLoading && !!user?.accessToken,
     queryKey: ["admin-profile"],
@@ -35,13 +35,13 @@ const AdminProfile = ({ agreement }) => {
         {/* Admin Info */}
         <div className="flex flex-col md:flex-row items-center gap-6 mb-10">
           <img
-            src={agreement?.user?.photoURL}
+            src={user?.photoURL}
             alt="Admin"
             className="w-28 h-28 md:w-32 md:h-32 rounded-full border-4 border-gray-100 shadow-md"
           />
           <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-black">{agreement?.userName}</h2>
-            <p className="text-sm sm:text-base mt-1 text-gray-700">{agreement?.userEmail}</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-black">{user?.displayName}</h2>
+            <p className="text-sm sm:text-base mt-1 text-gray-700">{user?.email}</p>
           </div>
         </div>
 

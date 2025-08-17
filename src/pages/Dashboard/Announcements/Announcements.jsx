@@ -25,7 +25,7 @@ const Announcements = () => {
         {announcements.map((announcement, index) => (
           <div
             key={index}
-            className="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-md transition "
+            className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-md transition "
           >
             <h3 className="text-2xl font-semibold text-black mb-2">
               {announcement.title}

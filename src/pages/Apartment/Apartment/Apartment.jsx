@@ -5,10 +5,11 @@ import useAxios from "../../../hooks/useAxios";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loading from "../../shared/Loading/Loading";
+import { FaRegSadTear } from "react-icons/fa"; // 🔹 added icon
 
 const Apartment = () => {
   const axiosFetch = useAxios();
-  const {user, isLoadingUser}=useAuth();
+  const { user, isLoadingUser } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [page, setPage] = useState(1);
   const limit = 6;
@@ -17,6 +18,8 @@ const Apartment = () => {
   const [maxRent, setMaxRent] = useState("");
   const [appliedMin, setAppliedMin] = useState("");
   const [appliedMax, setAppliedMax] = useState("");
+
+  const [sortOrder, setSortOrder] = useState("asc");
 
   const { data = {}, isLoading } = useQuery({
     queryKey: ["apartments", page, appliedMin, appliedMax],
@@ -28,26 +31,28 @@ const Apartment = () => {
     },
   });
 
-
-    const { data: role} = useQuery({
-      enabled:!!user?.email && !isLoadingUser,
-      queryKey: ['role', user?.email],
-      queryFn: async () => {
-        const res = await axiosSecure(`/role/${user?.email}`);
-        return res.data;
-      },
-    });
-
+  const { data: role } = useQuery({
+    enabled: !!user?.email && !isLoadingUser,
+    queryKey: ["role", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure(`/role/${user?.email}`);
+      return res.data;
+    },
+  });
 
   const rooms = data.rooms || [];
   const totalPages = data.totalPages || 1;
+
+  const sortedRooms = [...rooms].sort((a, b) =>
+    sortOrder === "asc" ? a.rent - b.rent : b.rent - a.rent
+  );
 
   if (isLoading) return <Loading></Loading>;
 
   const handleApplyFilter = () => {
     setAppliedMin(minRent);
     setAppliedMax(maxRent);
-    setPage(1); // Reset to first page when filters applied
+    setPage(1);
   };
 
   return (
@@ -56,39 +61,72 @@ const Apartment = () => {
         Available Apartments
       </h2>
 
-      {/* Rent Range Inputs */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-        <input
-          type="number"
-          placeholder="Min Rent"
-          className="w-full sm:w-48 px-4 py-2 rounded-xl shadow-sm bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
-          value={minRent}
-          onChange={(e) => setMinRent(e.target.value)}
-          min={0}
-        />
-        <input
-          type="number"
-          placeholder="Max Rent"
-          className="w-full sm:w-48 px-4 py-2 rounded-xl shadow-sm bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
-          value={maxRent}
-          onChange={(e) => setMaxRent(e.target.value)}
-          min={0}
-        />
-        <button
-          onClick={handleApplyFilter}
-          className="bg-indigo-500 hover:bg-indigo-700 text-white px-6 py-2 rounded-xl"
-        >
-          Apply Filter
-        </button>
-      </div>
+      {/* Rent Range + Sorting */}
+     <div className="bg-white shadow-xl rounded-2xl p-6 mb-8 border border-gray-100">
+  <h2 className="text-lg font-semibold text-gray-800 mb-4">Filter Apartments</h2>
+
+  <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+    {/* Left: Rent Inputs + Button */}
+    <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+      {/* Min Rent */}
+      <input
+        type="number"
+        placeholder="Min Rent"
+        className="w-full sm:w-40 px-4 py-2 rounded-xl shadow-sm bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+        value={minRent}
+        onChange={(e) => setMinRent(e.target.value)}
+        min={0}
+      />
+
+      {/* Max Rent */}
+      <input
+        type="number"
+        placeholder="Max Rent"
+        className="w-full sm:w-40 px-4 py-2 rounded-xl shadow-sm bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+        value={maxRent}
+        onChange={(e) => setMaxRent(e.target.value)}
+        min={0}
+      />
+
+      {/* Apply Button */}
+      <button
+        onClick={handleApplyFilter}
+        className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-2 rounded-xl shadow-md transition-all duration-200"
+      >
+        Apply
+      </button>
+    </div>
+
+    {/* Right: Sorting */}
+    <div className="flex flex-col w-full md:w-auto">
+      <label className="text-sm font-medium text-gray-700 mb-1">Price</label>
+      <select
+        value={sortOrder}
+        onChange={(e) => setSortOrder(e.target.value)}
+        className="w-full md:w-48 px-4 py-2 rounded-xl shadow-sm bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200"
+      >
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
       {/* Apartments Grid */}
       <div className="grid gap-6 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-        {rooms.length > 0 ? (
-          rooms.map((room) => <ApartmentCard key={room._id} room={room} role={role} />)
+        {sortedRooms.length > 0 ? (
+          sortedRooms.map((room) => (
+            <ApartmentCard key={room._id} room={room} role={role} />
+          ))
         ) : (
-          <p className="text-center text-gray-500 text-lg col-span-full">
-            🚫 No apartments found in this rent range.
+          <p className="flex items-center justify-center gap-2 text-center text-gray-500 text-lg col-span-full">
+            <FaRegSadTear className="text-2xl text-indigo-500" />
+            No apartments found in this rent range.
           </p>
         )}
       </div>
