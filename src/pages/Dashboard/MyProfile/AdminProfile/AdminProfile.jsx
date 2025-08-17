@@ -10,7 +10,7 @@ const AdminProfile = ({ user }) => {
   const axiosSecure = useAxiosSecure();
   const { isUserLoading } = useAuth();
 
-  const { data: adminStats, isLoading } = useQuery({
+  const { data: adminStats } = useQuery({
     enabled: !isUserLoading && !!user?.accessToken,
     queryKey: ['admin-profile'],
     queryFn: async () => {
@@ -19,7 +19,6 @@ const AdminProfile = ({ user }) => {
     }
   });
 
-  if (isLoading) return <Loading />;
 
   const apartment = adminStats?.apartments || [];
   const userData = adminStats?.user || [];
